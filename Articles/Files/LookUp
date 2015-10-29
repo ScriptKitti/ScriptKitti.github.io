@@ -1,0 +1,7 @@
+echo ""
+echo "IP ADDRESS"
+echo -n "Enter IP Address: "
+read Address
+echo ""
+echo "LOOKING UP: $Address"
+nslookup $Address
