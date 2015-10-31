@@ -1,0 +1,6 @@
+cd Desktop
+echo ""
+echo "EDIT FILE"
+echo -n "File Name: "
+read Name
+nano $Name
