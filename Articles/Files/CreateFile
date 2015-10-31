@@ -1,4 +1,0 @@
-cd Desktop
-echo -n "File Name: "
-read Name
-touch $Name
