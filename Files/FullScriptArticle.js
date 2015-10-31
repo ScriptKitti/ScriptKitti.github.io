@@ -48,26 +48,6 @@ $(document).ready(function(headerHeight, curScroll, imgPerc, imgPos, imgSize, fa
     }
   });
   
-  if (screen.width < 1024) {
-    $('pre').width(screen.width - 40);
-  }
-  
-  $('span[id$="all-code"]').click(function() {
-    var range, selection;
-
-    if (window.getSelection && document.createRange) {
-      selection = window.getSelection();
-      range = document.createRange();
-      range.selectNodeContents($(this)[0]);
-      selection.removeAllRanges();
-      selection.addRange(range);
-    } else if (document.selection && document.body.createTextRange) {
-      range = document.body.createTextRange();
-      range.moveToElementText($(this)[0]);
-      range.select();
-    }
-  });
-  
   getFacebookCount();
   getTwitterCount();
   getPinterestCount();
@@ -75,13 +55,6 @@ $(document).ready(function(headerHeight, curScroll, imgPerc, imgPos, imgSize, fa
 });
 
 //--------------------------------------------------GET SOCIAL COUNTS
-//function getFacebookCount() {
-  //reference = $('#facebook-count').attr('reference');
-  //$.getJSON('https://graph.facebook.com/fql?q=SELECT%20like_count,%20total_count,%20share_count,%20click_count,%20comment_count%20FROM%20link_stat%20WHERE%20url%20=%20%22https://www.facebook.com/pages/Colorizor/479642585547376%22', function(data) {
-    //var facebook = data.data[0].total_count;
-    //$('#facebook-count').text(facebook);
-  //});
-//}
 function getFacebookCount() {
   reference = $('#facebook-count').attr('reference');
   $.getJSON('https://graph.facebook.com/?id=' + reference, function(data) {
