@@ -64,25 +64,25 @@ $(document).ready(function() {
   //});
 //}
 function getFacebookCount() {
-  $.getJSON('https://graph.facebook.com/?id=https://colorizor.github.io', function(data) {
+  $.getJSON('https://graph.facebook.com/?id=https://scriptkitti.github.io', function(data) {
     var facebook = data.shares;
     $('#facebook-count').text(facebook);
   });
 }
 function getTwitterCount() {
-  $.getJSON('https://cdn.api.twitter.com/1/urls/count.json?url=https://colorizor.github.io&callback=?', function(data) {
+  $.getJSON('https://cdn.api.twitter.com/1/urls/count.json?url=https://scriptkitti.github.io&callback=?', function(data) {
     var twitter = data.count;
     $('#twitter-count').text(twitter);
   });
 }
 function getPinterestCount() {
-  $.getJSON('https://api.pinterest.com/v1/urls/count.json?callback%20&url=https://colorizor.github.io', function(data) {
+  $.getJSON('https://api.pinterest.com/v1/urls/count.json?callback%20&url=https://scriptkitti.github.io', function(data) {
     var pinterest = data.count;
     $('#pinterest-count').text(pinterest);
   });
 }
 function getLinkedInCount() {
-  $.getJSON('https://www.linkedin.com/countserv/count/share?url=https://colorizor.github.io&callback=?', function(data) {
+  $.getJSON('https://www.linkedin.com/countserv/count/share?url=https://scriptkitti.github.io&callback=?', function(data) {
     var linkedin = data.count;
     $('#linkedin-count').text(linkedin);
   });
