@@ -48,26 +48,6 @@ $(document).ready(function(headerHeight, curScroll, imgPerc, imgPos, imgSize, fa
     }
   });
   
-  if (screen.width < 1024) {
-    $('pre').width(screen.width - 40);
-  }
-  
-  $('span[id$="all-code"]').click(function() {
-    var range, selection;
-
-    if (window.getSelection && document.createRange) {
-      selection = window.getSelection();
-      range = document.createRange();
-      range.selectNodeContents($(this)[0]);
-      selection.removeAllRanges();
-      selection.addRange(range);
-    } else if (document.selection && document.body.createTextRange) {
-      range = document.body.createTextRange();
-      range.moveToElementText($(this)[0]);
-      range.select();
-    }
-  });
-  
   getFacebookCount();
   getTwitterCount();
   getPinterestCount();
