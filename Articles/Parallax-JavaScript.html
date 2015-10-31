@@ -24,8 +24,8 @@
       function loadCSS(e,n,o,t){var d=window.document.createElement("link"),i=n||window.document.getElementsByTagName("script")[0],s=window.document.styleSheets;return d.rel="stylesheet",d.href=e,d.media="only x",t&&(d.onload=t),i.parentNode.insertBefore(d,i),d.onloadcssdefined=function(n){for(var o,t=0;t<s.length;t++)s[t].href&&s[t].href.indexOf(e)>-1&&(o=!0);o?n():setTimeout(function(){d.onloadcssdefined(n)})},d.onloadcssdefined(function(){d.media=o||"all"}),d}
       loadCSS("https://scriptkitti.github.io/Files/style.css");
     </script>
-    <link rel="stylesheet" type="text/css" href="https://colorizor.github.io/Themes/Salmon.css">
-    <script type="text/javascript" src="https://colorizor.github.io/Files/script.js" async></script>
+    <link href="themes/prism.css" rel="stylesheet" />
+    <script type="text/javascript" src="prism.js" async></script>
   </head>
   <body>
     <div id="background"></div>
@@ -49,7 +49,7 @@
           </tr>
           <tr>
             <td>
-              <pre language="javascript">var factor = 3;
+              <pre><code class="language-javascript">var factor = 3;
 $(window).scroll(function() {
   if ($(window).scrollTop() >= 0) {
     imgPos = ($(window).scrollTop() / factor) * -1;
@@ -62,7 +62,7 @@ $(window).scroll(function() {
       'background-size': imgSize + '%'
     });
   }
-});</pre>
+});</code></pre>
             </td>
           </tr>
         </tbody>
