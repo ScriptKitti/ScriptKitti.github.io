@@ -1,4 +1,4 @@
-javascript:(function(page, client, stream, url, json, index, name, count) {
+(function(page, client, stream, url, json, index, name, count) {
   page = window.location.href;
   page = page.split('://').join('://api-v2.');
   
