@@ -1,4 +1,4 @@
-function(page, client, stream, url, json, index, name, count) {
+javascript:(function(page, client, stream, url, json, index, name, count) {
   function loadJS(src, cb) {
     var ref = window.document.getElementsByTagName('script')[0];
     var script = window.document.createElement('script');
@@ -62,4 +62,4 @@ function(page, client, stream, url, json, index, name, count) {
       link.click();
     }
   }
-}
+})();
