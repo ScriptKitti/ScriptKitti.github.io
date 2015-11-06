@@ -3,7 +3,7 @@
   $client = $_GET['client'];
   $fileName = $_GET['title'];
   $filePath = $stream . '?client_id=' . $client;
-  header('Content-Type: application/octet-stream');
+  header('Content-Type: audio/mp3');
   header('Content-Disposition: attachment; filename=' . $fileName . '.mp3;');
   header('Content-Length: ' . filesize($filePath));
   readfile($filePath);
