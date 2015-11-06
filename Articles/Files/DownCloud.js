@@ -11,7 +11,7 @@ javascript:(function(page, client, stream, url, json, index, name, count) {
     return script;
   }
   
-  if (typeof jQuery != 'undefined') {
+  if (typeof jQuery == 'undefined') {
     loadJS('https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js');
   }
   
