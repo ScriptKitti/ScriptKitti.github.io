@@ -5,5 +5,5 @@
   header ('Content-Type: application/octet-stream');
   header ('Content-Length: ' . filesize($filePath));
   header ('Content-Disposition: attachment; filename=$fileName');
-  readfile($Path2File);
+  readfile($filePath);
 ?>
