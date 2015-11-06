@@ -1,15 +1,4 @@
-javascript:(function(page, client, stream, url, json, index, name, count) {
-  function loadJS(src, cb) {
-    var ref = window.document.getElementsByTagName('script')[0];
-    var script = window.document.createElement('script');
-    script.src = src;
-    script.async = true;
-    ref.parentNode.insertBefore(script, ref);
-    if (cb && typeof(cb) === 'function') {
-      script.onload = cb;
-    }
-    return script;
-  }
+(function(page, client, stream, url, json, index, name, count) {
   
   if (typeof jQuery != 'undefined') {
     loadJS('https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js');
@@ -63,3 +52,14 @@ javascript:(function(page, client, stream, url, json, index, name, count) {
     }
   }
 })();
+// function loadJS(src, cb) {
+//     var ref = window.document.getElementsByTagName('script')[0];
+//     var script = window.document.createElement('script');
+//     script.src = src;
+//     script.async = true;
+//     ref.parentNode.insertBefore(script, ref);
+//     if (cb && typeof(cb) === 'function') {
+//       script.onload = cb;
+//     }
+//     return script;
+//   }
