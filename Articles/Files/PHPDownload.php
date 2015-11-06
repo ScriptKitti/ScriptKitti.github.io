@@ -1,7 +1,7 @@
 <?php
-  if (isset($_POST['fileTitle'], $_POST['filePath'])) {
-    $fileTitle = $_POST['fileTitle'];
-    $filePath = $_POST['filePath'];
+  if (isset($_GET['fileTitle'], $_GET['filePath'])) {
+    $fileTitle = $_GET['fileTitle'];
+    $filePath = $_GET['filePath'];
     header('Content-Type: audio/mp3');
     header('Content-Disposition: attachment; filename="' . $fileTitle . '.mp3";');
     header('Pragma: public');
