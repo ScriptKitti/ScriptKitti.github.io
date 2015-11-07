@@ -6,12 +6,12 @@ function download(data, filename) {
   fs.root.getFile(filename, {
     create: true
   }, function(fileEntry) {
-    fileEntry.createWriter(function (fileWriter) {
-      fileWriter.onwriteend = function (e) {
+    fileEntry.createWriter(function(fileWriter) {
+      fileWriter.onwriteend = function(e) {
         console.log('Write completed.');
       };
       
-      fileWriter.onerror = function (e) {
+      fileWriter.onerror = function(e) {
         console.log('Write failed: ' + e.toString());
       };
       
