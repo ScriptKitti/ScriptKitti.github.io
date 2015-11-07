@@ -3,7 +3,7 @@ function download(data, filename) {
     window.BlobBuilder = window.WebKitBlobBuilder;
   }
   
-  data.root.getFile(filename, {
+  window.BlobBuilder.root.getFile(filename, {
     create: true
   }, function(fileEntry) {
     fileEntry.createWriter(function(fileWriter) {
