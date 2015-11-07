@@ -28,7 +28,7 @@ function download(filePath, fileTitle) {
         createLink(window.URL.createObjectURL(blob));
       }
     }
-  }
+  };
   
   function createLink(href) {
     var a = document.createElement('a');
