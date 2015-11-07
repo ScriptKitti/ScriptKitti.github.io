@@ -4,9 +4,9 @@ function download(filePath, fileTitle) {
   var request = new XMLHttpRequest();
   request.responseType = 'arraybuffer';
   request.open('GET', filePath, true);
-  var contentType = request.getResponseHeader('Content-Type') || 'audio/mpeg3';
   
   request.onload = function() {
+    var contentType = request.getResponseHeader('Content-Type') || 'audio/mpeg3';
     var array = new Int8Array(request.response);
     
     try {
