@@ -16,8 +16,6 @@ javascript:(function(page, client, url, stream, json, index, title, count) {
   
   var waitForLoad = function() {
     if (typeof jQuery != 'undefined') {
-      loadJS('https://scriptkitti.github.io/Articles/Files/BlobDownload.js');
-      
       page = window.location.href;
       page = page.split('://').join('://api-v2.');
       
@@ -43,11 +41,16 @@ javascript:(function(page, client, url, stream, json, index, title, count) {
       
       $(document).on('dblclick', 'li', function() {
         index = $(this).index();
-        stream = json[(index / 10) | 0][index % 10].stream_url;
-        title = json[(index / 10) | 0][index % 10].title;
+        var stringIndex = (index / 10).toFixed(1).toString();
+        var first = stringIndex.split('.')[0];
+        var second = stringIndex.split('.')[1];
+        stream = json[first][second].stream_url;
+        title = json[first][second].title;
         url = stream + '?client_id=' + client;
         download(url, title);
       });
+      
+      loadJS('https://scriptkitti.github.io/Articles/Files/BlobDownload.js');
     } else {
       window.setTimeout(waitForLoad, 60);
     }
