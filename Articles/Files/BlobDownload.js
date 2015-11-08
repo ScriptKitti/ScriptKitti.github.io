@@ -15,7 +15,7 @@ function download(filePath, fileTitle) {
       createLink(window.URL.createObjectURL(blob));
     } catch(error) {
       window.BlobBuilder = window.BlobBuilder || window.WebKitBlobBuilder || window.MozBlobBuilder || window.MSBlobBuilder;
-
+      
       if (error.name == 'TypeError' && window.BlobBuilder) {
         var builder = new BlobBuilder();
         builder.append(array.buffer);
@@ -40,3 +40,4 @@ function download(filePath, fileTitle) {
   
   request.send();
 }
+alert('Double click on play button to download.');
