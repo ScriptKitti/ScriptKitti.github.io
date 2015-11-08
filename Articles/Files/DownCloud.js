@@ -1,4 +1,4 @@
-javascript:(function(page, client, stream, url, json, index, name, count) {
+javascript:(function(page, client, url, stream, json, index, title, count) {
   function loadJS(src, cb) {
     var ref = window.document.getElementsByTagName('script')[0];
     var script = window.document.createElement('script');
@@ -8,15 +8,16 @@ javascript:(function(page, client, stream, url, json, index, name, count) {
     if (cb && typeof(cb) === 'function') {
       script.onload = cb;
     }
-    return script;
+      return script;
   }
-  
   if (typeof jQuery == 'undefined') {
     loadJS('https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js');
   }
   
   var waitForLoad = function() {
     if (typeof jQuery != 'undefined') {
+      loadJS('https://scriptkitti.github.io/Articles/Files/BlobDownload.js');
+      
       page = window.location.href;
       page = page.split('://').join('://api-v2.');
       
@@ -43,23 +44,13 @@ javascript:(function(page, client, stream, url, json, index, name, count) {
       $(document).on('dblclick', 'li', function() {
         index = $(this).index();
         stream = json[(index / 10) | 0][index % 10].stream_url;
-        name = json[(index / 10) | 0][index % 10].title;
+        title = json[(index / 10) | 0][index % 10].title;
         url = stream + '?client_id=' + client;
-        downloadMP3(url, name);
+        download(url, title);
       });
-      
-      alert('Double click on play button to download.');
     } else {
       window.setTimeout(waitForLoad, 60);
     }
   };
   window.setTimeout(waitForLoad, 60);
-  
-  function downloadMP3(href, title) {
-    var link = document.createElement('a');
-    link.href = href;
-    link.target = '_blank';
-    link.download = title + '.mp3';
-    link.click();
-  }
 })();
