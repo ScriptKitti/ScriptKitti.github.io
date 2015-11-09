@@ -1,6 +1,6 @@
 function download(metadata) {
   window.URL = window.URL || window.webkitURL;
-  alert(metadata)
+  alert(metadata);
   if (XMLHttpRequest) {
     var request = new XMLHttpRequest();
   } else if (ActiveXObject) {
@@ -10,7 +10,7 @@ function download(metadata) {
   request.responseType = 'arraybuffer';
   request.open('GET', metadata[0], true);
   var contentType = request.getResponseHeader('Content-Type') || 'audio/mpeg3';
-  request.send(null);
+  request.send();
   
   request.onload = function() {
     var array = new Int8Array(request.response);
