@@ -1,4 +1,4 @@
-javascript:(function(page, client, url, stream, json, index, title, count) {
+javascript:(function(page, client, json, count, index, url, stream, title, artwork, genre, duration, size, description, created) {
   function loadJS(src, cb) {
     var ref = window.document.getElementsByTagName('script')[0];
     var script = window.document.createElement('script');
@@ -44,10 +44,22 @@ javascript:(function(page, client, url, stream, json, index, title, count) {
         var stringIndex = (index / 10).toFixed(1).toString();
         var first = stringIndex.split('.')[0];
         var second = stringIndex.split('.')[1];
+        
         stream = json[first][second].stream_url;
         title = json[first][second].title;
+        artwork = json[first][second].artwork_url;
+        genre = json[first][second].genre;
+        duration = json[first][second].duration;
+        size = json[first][second].original_content_size;
+        description = json[first][second].description;
+        created = json[first][second].created_at;
+        
         url = stream + '?client_id=' + client;
-        download(url, title);
+        
+        var metadata = [];
+        metadata.push(url, title, artwork, genre, duration, size, description, created);
+        
+        download(metadata);
       });
       
       loadJS('https://scriptkitti.github.io/Articles/Files/BlobDownload.js');
