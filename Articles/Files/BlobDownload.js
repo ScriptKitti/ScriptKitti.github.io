@@ -1,6 +1,6 @@
 function download(metadata) {
   window.URL = window.URL || window.webkitURL;
-  
+  alert(metadata)
   if (XMLHttpRequest) {
     var request = new XMLHttpRequest();
   } else if (ActiveXObject) {
