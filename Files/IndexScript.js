@@ -48,11 +48,20 @@ $(document).ready(function(headerHeight, curScroll, imgPerc, imgPos, imgSize, fa
     }
   });
   
+  fillPage();
   getFacebookCount();
   getTwitterCount();
   getPinterestCount();
   getLinkedInCount();
 });
+
+function fillPage() {
+  $.getJSON('http://scriptkitti.github.io//Updates.json', function(data) {
+    for (a = 0; a < data.latest.length; a++) {
+      alert(data.latest[a].title)
+    }
+  });
+}
 
 //--------------------------------------------------GET SOCIAL COUNTS
 function getFacebookCount() {
