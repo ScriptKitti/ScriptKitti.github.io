@@ -1,7 +1,7 @@
 /*------------------------------------------------------------------------------------*/
 /*------------------------------------All Devices-------------------------------------*/
 /*------------------------------------------------------------------------------------*/
-#background-cover{background-color:rgb(35, 49, 56);bottom:0px;display:none;height:auto;left:0px;position:fixed;right:0px;top:0px;width:auto;z-index:-1;}
+#background-cover{background-color:rgb(62, 69, 76);bottom:0px;display:none;height:auto;left:0px;position:fixed;right:0px;top:0px;width:auto;z-index:-1;}
 html{width:100%;z-index:0;}
 body{background-color:rgb(35, 49, 56);height:auto;left:0px;margin:0;padding:0;position:relative;right:0px;top:0px;width:auto;z-index:20;-webkit-text-size-adjust:none;-moz-text-size-adjust:none;-ms-text-size-adjust:none;}
 main{background-color:rgb(76, 100, 107);height:auto;left:0px;position:relative;right:0px;top:0px;width:auto;z-index:21;}
@@ -19,7 +19,7 @@ hr{background-color:rgb(35, 49, 56);border:0px solid;height:3px;margin-top:0px;}
 /*--------------------------------------Desktop---------------------------------------*/
 /*------------------------------------------------------------------------------------*/
 @media all and (min-width: 1024px) {
-  #background{background-color:rgb(35, 49, 56);background-image:url("https://scriptkitti.github.io/Images/HomePage.png");background-position:center 0px;background-repeat:no-repeat;background-size:100% auto;height:100%;left:0px;position:fixed;top:0px;width:100%;z-index:-2;}
+  #background{background-color:rgb(62, 69, 76);background-image:url("https://scriptkitti.github.io/Images/HomePage.png");background-position:center 0px;background-repeat:no-repeat;background-size:100% auto;height:100%;left:0px;position:fixed;top:0px;width:100%;z-index:-2;}
   header{height:400px;left:0px;margin:0;padding:0;position:relative;right:0px;top:0px;width:auto;z-index:21;}
   #large-box{height:auto;left:0px;margin-bottom:0px;position:relative;right:0px;top:0px;width:auto;z-index:22;}
   #little-box{height:auto;left:20%;margin-bottom:10px;position:relative;top:0px;width:60%;z-index:22;}
