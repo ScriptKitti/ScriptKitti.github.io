@@ -58,7 +58,7 @@ $(document).ready(function(headerHeight, curScroll, imgPerc, imgPos, imgSize, fa
 function fillPage() {
   $.getJSON('http://scriptkitti.github.io//Updates.json', function(data) {
     for (a = 0; a < data.latest.length; a++) {
-      $('.latest-' + (a + 1)).attr('onclick', 'window.location("' + data.latest[a].link + '", "_blank");');
+      $('.latest-' + (a + 1)).attr('onclick', 'window.open("' + data.latest[a].link + '", "_blank");');
       $('.latest-title-' + (a + 1)).text(data.latest[a].title);
       $('.latest-image-' + (a + 1)).attr('src', data.latest[a].image);
       $('.latest-description-' + (a + 1)).text(data.latest[a].description);
