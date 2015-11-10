@@ -13,21 +13,21 @@ javascript:(function(page, client, json, count, index, url, stream, title, artwo
   if (typeof jQuery == 'undefined') {
     loadJS('https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js');
   }
-  
+
   var waitForLoad = function() {
     if (typeof jQuery != 'undefined') {
       page = window.location.href;
       page = page.split('://').join('://api-v2.');
-      
+
       client = '9d43dd98637027e2f9764bc7219d9972';
-      
+
       count = 10;
       json = [];
-      
+
       $.getJSON(page + '&limit=10&offset=' + (count - 10), function(data) {
         json.push(data.collection);
       });
-      
+
       var checkUpdates = function() {
         if ($(document).find('li[class="searchList__item"]').length > count) {
           count = $(document).find('li[class="searchList__item"]').length;
@@ -38,13 +38,13 @@ javascript:(function(page, client, json, count, index, url, stream, title, artwo
         window.setTimeout(checkUpdates, 60);
       };
       window.setTimeout(checkUpdates, 60);
-      
+
       $(document).on('dblclick', 'li', function() {
         index = $(this).index();
         var stringIndex = (index / 10).toFixed(1).toString();
         var first = stringIndex.split('.')[0];
         var second = stringIndex.split('.')[1];
-        
+
         stream = json[first][second].stream_url;
         title = json[first][second].title;
         artwork = json[first][second].artwork_url;
@@ -53,16 +53,16 @@ javascript:(function(page, client, json, count, index, url, stream, title, artwo
         size = json[first][second].original_content_size;
         description = json[first][second].description;
         created = json[first][second].created_at;
-        
+
         url = stream + '?client_id=' + client;
-        
+
         var metadata = [];
         metadata.push(url, title, artwork, genre, duration, size, description, created);
-        
+
         download(metadata);
       });
-      
-      loadJS('https://scriptkitti.github.io/Articles/Files/BlobDownload.js');
+
+      loadJS('https://scriptkitti.github.io/api/BlobDownload.js');
     } else {
       window.setTimeout(waitForLoad, 60);
     }
