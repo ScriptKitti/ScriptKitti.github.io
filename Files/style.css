@@ -1,119 +1,4 @@
 /*------------------------------------------------------------------------------------*/
-/*----------------------------------------Dark----------------------------------------*/
-/*------------------------------------------------------------------------------------*/
-#dark-box{background-color:rgb(88, 88, 88);height:auto;width:100%;}
-pre#dark{background-color:rgb(88, 88, 88);color:rgb(232, 200, 178);font-family:"Lucida Console", Monaco, monospace;font-size:14px;font-style:bold;height:auto;margin:5px;overflow:auto;padding:10px;text-align:left;}
-#dark-title{background-color:rgb(255, 248, 207);color:rgb(232, 200, 178);font-family:"Lucida Console", Monaco, monospace;font-size:25px;font-style:bold;height:auto;text-align:left;width:auto;z-index:23;}
-#dark-text{background-color:rgb(255, 248, 207);color:rgb(232, 200, 178);font-family:"Lucida Console", Monaco, monospace;font-size:12px;font-style:bold;height:auto;width:auto;z-index:100;}
-#dark-all-number{border-right:1px solid rgb(232, 200, 178);display:inline-block;float:left;margin-right:8px;text-align:right;}
-#dark-all-code{display:inline-block;float:top;margin-left:8px;text-align:left;}
-#dark-number{color:rgb(232, 200, 178);float:top;padding-right:4px;}
-#dark-code{float:top;}
-#dark-link{color:rgb(150, 150, 150);font-style:underline;}
-#dark-regx{color:rgb(150, 150, 150);}
-#dark-units{color:rgb(150, 150, 150);}
-#dark-comment{color:rgb(205, 255, 214);font-style:italic;}
-#dark-selector{color:rgb(255, 248, 207);}
-#dark-attribute{color:rgb(173, 176, 232);}
-#dark-value{color:rgb(193, 222, 255);}
-#dark-parameter{color:rgb(232, 200, 178);}
-/*------------------------------------------------------------------------------------*/
-/*----------------------------------------Light---------------------------------------*/
-/*------------------------------------------------------------------------------------*/
-#light-box{background-color:rgb(252, 255, 245);height:auto;width:100%;}
-pre#light{background-color:rgb(252, 255, 245);color:rgb(142, 127, 170);font-family:"Lucida Console", Monaco, monospace;font-size:14px;font-style:bold;height:auto;margin:5px;overflow:auto;padding:10px;text-align:left;}
-#light-title{background-color:rgb(219, 186, 162);color:rgb(142, 127, 170);font-family:"Lucida Console", Monaco, monospace;font-size:25px;font-style:bold;height:auto;text-align:left;width:auto;z-index:23;}
-#light-text{background-color:rgb(219, 186, 162);color:rgb(142, 127, 170);font-family:"Lucida Console", Monaco, monospace;font-size:12px;font-style:bold;height:auto;width:auto;z-index:100;}
-#light-all-number{border-right:1px solid rgb(142, 127, 170);display:inline-block;float:left;margin-right:8px;text-align:right;}
-#light-all-code{display:inline-block;float:top;margin-left:8px;text-align:left;}
-#light-number{color:rgb(142, 127, 170);float:top;padding-right:4px;}
-#light-code{float:top;}
-#light-link{color:rgb(150, 150, 150);font-style:underline;}
-#light-regx{color:rgb(150, 150, 150);}
-#light-units{color:rgb(150, 150, 150);}
-#light-comment{color:rgb(145, 170, 157);font-style:italic;}
-#light-selector{color:rgb(219, 186, 162);}
-#light-attribute{color:rgb(25, 52, 65);}
-#light-value{color:rgb(62, 96, 111);}
-#light-parameter{color:rgb(142, 127, 170);}
-/*------------------------------------------------------------------------------------*/
-/*---------------------------------------Salmon---------------------------------------*/
-/*------------------------------------------------------------------------------------*/
-#salmon-box{background-color:rgb(62, 69, 76);height:auto;width:100%;}
-pre#salmon{background-color:rgb(62, 69, 76);color:rgb(255, 246, 229);font-family:"Lucida Console", Monaco, monospace;font-size:14px;font-style:bold;height:auto;margin:5px;overflow:auto;padding:10px;text-align:left;}
-pre#salmon-center{background-color:rgb(62, 69, 76);color:rgb(255, 246, 229);font-family:"Lucida Console", Monaco, monospace;font-size:14px;font-style:bold;height:auto;margin:auto;overflow:auto;padding:10px;text-align:left;}
-#salmon-title{background-color:rgb(255, 127, 102);color:rgb(255, 246, 229);font-family:"Lucida Console", Monaco, monospace;font-size:25px;font-style:bold;height:auto;text-align:left;width:auto;z-index:23;}
-#salmon-text{background-color:rgb(255, 127, 102);color:rgb(255, 246, 229);font-family:"Lucida Console", Monaco, monospace;font-size:12px;font-style:bold;height:auto;width:auto;z-index:100;}
-#salmon-all-number{border-right:1px solid rgb(255, 246, 229);display:inline-block;float:left;margin-right:8px;text-align:right;}
-#salmon-all-code{display:inline-block;float:top;margin-left:8px;text-align:left;}
-#salmon-number{color:rgb(255, 246, 229);float:top;padding-right:4px;}
-#salmon-code{float:top;}
-#salmon-link{color:rgb(150, 150, 150);font-style:underline;}
-#salmon-regx{color:rgb(150, 150, 150);}
-#salmon-units{color:rgb(150, 150, 150);}
-#salmon-comment{color:rgb(159, 253, 193);font-style:italic;}
-#salmon-selector{color:rgb(255, 127, 102);}
-#salmon-attribute{color:rgb(33, 133, 197);}
-#salmon-value{color:rgb(126, 206, 253);}
-#salmon-parameter{color:rgb(255, 246, 229);}
-/*------------------------------------------------------------------------------------*/
-/*----------------------------------------Honey---------------------------------------*/
-/*------------------------------------------------------------------------------------*/
-#honey-box{background-color:rgb(16, 91, 99);height:auto;width:100%;}
-pre#honey{background-color:rgb(16, 91, 99);color:rgb(189, 73, 50);font-family:"Lucida Console", Monaco, monospace;font-size:14px;font-style:bold;height:auto;margin:5px;overflow:auto;padding:10px;text-align:left;}
-#honey-title{background-color:rgb(219, 158, 54);color:rgb(189, 73, 50);font-family:"Lucida Console", Monaco, monospace;font-size:25px;font-style:bold;height:auto;text-align:left;width:auto;z-index:23;}
-#honey-text{background-color:rgb(219, 158, 54);color:rgb(189, 73, 50);font-family:"Lucida Console", Monaco, monospace;font-size:12px;font-style:bold;height:auto;width:auto;z-index:100;}
-#honey-all-number{border-right:1px solid rgb(189, 73, 50);display:inline-block;float:left;margin-right:8px;text-align:right;}
-#honey-all-code{display:inline-block;float:top;margin-left:8px;text-align:left;}
-#honey-number{color:rgb(189, 73, 50);float:top;padding-right:4px;}
-#honey-code{float:top;}
-#honey-link{color:rgb(150, 150, 150);font-style:underline;}
-#honey-regx{color:rgb(150, 150, 150);}
-#honey-units{color:rgb(150, 150, 150);}
-#honey-comment{color:rgb(154, 204, 255);font-style:italic;}
-#honey-selector{color:rgb(219, 158, 54);}
-#honey-attribute{color:rgb(255, 211, 78);}
-#honey-value{color:rgb(255, 250, 213);}
-#honey-parameter{color:rgb(189, 73, 50);}
-/*------------------------------------------------------------------------------------*/
-/*--------------------------------------Vintage---------------------------------------*/
-/*------------------------------------------------------------------------------------*/
-#vintage-box{background-color:rgb(126, 130, 122);height:auto;width:100%;}
-pre#vintage{background-color:rgb(126, 130, 122);color:rgb(227, 205, 164);font-family:"Lucida Console", Monaco, monospace;font-size:14px;font-style:bold;height:auto;margin:5px;overflow:auto;padding:10px;text-align:left;}
-#vintage-title{background-color:rgb(47, 52, 59);color:rgb(227, 205, 164);font-family:"Lucida Console", Monaco, monospace;font-size:25px;font-style:bold;height:auto;text-align:left;width:auto;z-index:23;}
-#vintage-text{background-color:rgb(47, 52, 59);color:rgb(227, 205, 164);font-family:"Lucida Console", Monaco, monospace;font-size:12px;font-style:bold;height:auto;width:auto;z-index:100;}
-#vintage-all-number{border-right:1px solid rgb(227, 205, 164);display:inline-block;float:left;margin-right:8px;text-align:right;}
-#vintage-all-code{display:inline-block;float:top;margin-left:8px;text-align:left;}
-#vintage-number{color:rgb(227, 205, 164);float:top;padding-right:4px;}
-#vintage-code{float:top;}
-#vintage-link{color:rgb(150, 150, 150);font-style:underline;}
-#vintage-regx{color:rgb(150, 150, 150);}
-#vintage-units{color:rgb(150, 150, 150);}
-#vintage-comment{color:rgb(88, 130, 100);font-style:italic;}
-#vintage-selector{color:rgb(47, 52, 59);}
-#vintage-attribute{color:rgb(112, 48, 48);}
-#vintage-value{color:rgb(199, 121, 102);}
-#vintage-parameter{color:rgb(227, 205, 164);}
-/*------------------------------------------------------------------------------------*/
-/*----------------------------------------Beach---------------------------------------*/
-/*------------------------------------------------------------------------------------*/
-#beach-box{background-color:rgb(170, 216, 176);height:auto;width:100%;}
-pre#beach{background-color:rgb(170, 216, 176);color:rgb(255, 132, 127);font-family:"Lucida Console", Monaco, monospace;font-size:14px;font-style:bold;height:auto;margin:5px;overflow:auto;padding:10px;text-align:left;}
-#beach-title{background-color:rgb(139, 173, 206);color:rgb(255, 132, 127);font-family:"Lucida Console", Monaco, monospace;font-size:25px;font-style:bold;height:auto;text-align:left;width:auto;z-index:23;}
-#beach-text{background-color:rgb(139, 173, 206);color:rgb(255, 132, 127);font-family:"Lucida Console", Monaco, monospace;font-size:12px;font-style:bold;height:auto;width:auto;z-index:100;}
-#beach-all-number{border-right:1px solid rgb(255, 132, 127);display:inline-block;float:left;margin-right:8px;text-align:right;}
-#beach-all-code{display:inline-block;float:top;margin-left:8px;text-align:left;}
-#beach-number{color:rgb(255, 132, 127);float:top;padding-right:4px;}
-#beach-code{float:top;}
-#beach-link{color:rgb(150, 150, 150);font-style:underline;}
-#beach-regx{color:rgb(150, 150, 150);}
-#beach-units{color:rgb(150, 150, 150);}
-#beach-comment{color:rgb(203, 255, 243);font-style:italic;}
-#beach-selector{color:rgb(139, 173, 206);}
-#beach-attribute{color:rgb(255, 204, 92);}
-#beach-value{color:rgb(255, 238, 173);}
-#beach-parameter{color:rgb(255, 132, 127);}
-/*------------------------------------------------------------------------------------*/
 /*------------------------------------All Devices-------------------------------------*/
 /*------------------------------------------------------------------------------------*/
 #background-cover{background-color:rgb(35, 49, 56);bottom:0px;display:none;height:auto;left:0px;position:fixed;right:0px;top:0px;width:auto;z-index:-1;}
@@ -134,7 +19,7 @@ hr{background-color:rgb(35, 49, 56);border:0px solid;height:3px;margin-top:0px;}
 /*--------------------------------------Desktop---------------------------------------*/
 /*------------------------------------------------------------------------------------*/
 @media all and (min-width: 1024px) {
-  #background{background-color:rgb(35, 49, 56);background-image:url("https://colorizor.github.io/Images/HomePage.png");background-position:center 0px;background-repeat:no-repeat;background-size:100% auto;height:100%;left:0px;position:fixed;top:0px;width:100%;z-index:-2;}
+  #background{background-color:rgb(35, 49, 56);background-image:url("https://scriptkitti.github.io/Images/HomePage.png");background-position:center 0px;background-repeat:no-repeat;background-size:100% auto;height:100%;left:0px;position:fixed;top:0px;width:100%;z-index:-2;}
   header{height:400px;left:0px;margin:0;padding:0;position:relative;right:0px;top:0px;width:auto;z-index:21;}
   #large-box{height:auto;left:0px;margin-bottom:0px;position:relative;right:0px;top:0px;width:auto;z-index:22;}
   #little-box{height:auto;left:20%;margin-bottom:10px;position:relative;top:0px;width:60%;z-index:22;}
@@ -143,7 +28,7 @@ hr{background-color:rgb(35, 49, 56);border:0px solid;height:3px;margin-top:0px;}
 /*---------------------------------------Tablet---------------------------------------*/
 /*------------------------------------------------------------------------------------*/
 @media all and (min-width: 720px) and (max-width: 1023px) {
-  #background{background-color:rgb(35, 49, 56);background-image:url("https://colorizor.github.io/Images/HomePage.png");background-position:center 0px;background-repeat:no-repeat;background-size:120% auto;height:100%;left:0px;position:fixed;top:0px;width:100%;z-index:-2;}
+  #background{background-color:rgb(35, 49, 56);background-image:url("https://scriptkitti.github.io/Images/HomePage.png");background-position:center 0px;background-repeat:no-repeat;background-size:120% auto;height:100%;left:0px;position:fixed;top:0px;width:100%;z-index:-2;}
   header{height:250px;left:0px;margin:0;padding:0;position:relative;right:0px;top:0px;width:auto;z-index:21;}
   #large-box{height:auto;left:0px;margin-bottom:0px;position:relative;right:0px;top:0px;width:100%;z-index:22;}
   #little-box{height:auto;left:0px;margin-bottom:10px;position:relative;right:0px;top:0px;width:100%;z-index:22;}
@@ -152,7 +37,7 @@ hr{background-color:rgb(35, 49, 56);border:0px solid;height:3px;margin-top:0px;}
 /*--------------------------------------Phablet---------------------------------------*/
 /*------------------------------------------------------------------------------------*/
 @media all and (min-width: 480px) and (max-width: 719px) {
-  #background{background-color:rgb(35, 49, 56);background-image:url("https://colorizor.github.io/Images/HomePage.png");background-position:center 0px;background-repeat:no-repeat;background-size:140% auto;height:100%;left:0px;position:fixed;top:0px;width:100%;z-index:-2;}
+  #background{background-color:rgb(35, 49, 56);background-image:url("https://scriptkitti.github.io/Images/HomePage.png");background-position:center 0px;background-repeat:no-repeat;background-size:140% auto;height:100%;left:0px;position:fixed;top:0px;width:100%;z-index:-2;}
   header{height:250px;left:0px;margin:0;padding:0;position:relative;right:0px;top:0px;width:auto;z-index:21;}
   #large-box{height:auto;left:0px;margin-bottom:0px;position:relative;right:0px;top:0px;width:100%;z-index:22;}
   #little-box{height:auto;left:0px;margin-bottom:10px;position:relative;right:0px;top:0px;width:100%;z-index:22;}
@@ -161,7 +46,7 @@ hr{background-color:rgb(35, 49, 56);border:0px solid;height:3px;margin-top:0px;}
 /*---------------------------------------Mobile---------------------------------------*/
 /*------------------------------------------------------------------------------------*/
 @media all and (max-width: 479px) {
-  #background{background-color:rgb(35, 49, 56);background-image:url("https://colorizor.github.io/Images/HomePage.png");background-position:center 0px;background-repeat:no-repeat;background-size:170% auto;height:100%;left:0px;position:fixed;top:0px;width:100%;z-index:-2;}
+  #background{background-color:rgb(35, 49, 56);background-image:url("https://scriptkitti.github.io/Images/HomePage.png");background-position:center 0px;background-repeat:no-repeat;background-size:170% auto;height:100%;left:0px;position:fixed;top:0px;width:100%;z-index:-2;}
   header{height:150px;left:0px;margin:0;padding:0;position:relative;right:0px;top:0px;width:auto;z-index:21;}
   #large-box{height:auto;left:0px;margin-bottom:0px;position:relative;right:0px;top:0px;width:100%;z-index:22;}
   #little-box{height:auto;left:0px;margin-bottom:10px;position:relative;right:0px;top:0px;width:100%;z-index:22;
