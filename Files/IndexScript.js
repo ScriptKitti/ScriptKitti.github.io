@@ -58,15 +58,10 @@ $(document).ready(function(headerHeight, curScroll, imgPerc, imgPos, imgSize, fa
 function fillPage() {
   $.getJSON('http://scriptkitti.github.io//Updates.json', function(data) {
     for (a = 0; a < data.latest.length; a++) {
-      var title = data.latest[a].title;
-      var image = data.latest[a].image;
-      var description = data.latest[a].description;
-      var link = data.latest[a].link;
-      
-      $('.latest-' + (a + 1)).attr('onclick', 'window.location("' + link + '", "_blank");');
-      $('.latest-title-' + (a + 1)).text() = title;
-      $('.latest-image-' + (a + 1)).attr('src', image);
-      $('.latest-description-' + (a + 1)).text() = description;
+      $('.latest-' + (a + 1)).attr('onclick', 'window.location("' + data.latest[a].link + '", "_blank");');
+      $('.latest-title-' + (a + 1)).text(data.latest[a].title);
+      $('.latest-image-' + (a + 1)).attr('src', data.latest[a].image);
+      $('.latest-description-' + (a + 1)).text(data.latest[a].description);
     }
   });
 }
