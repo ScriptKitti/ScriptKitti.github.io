@@ -31,7 +31,7 @@ hr{background-color:rgb(35, 49, 56);border:0px solid;height:3px;margin-top:0px;}
 /*---------------------------------------Tablet---------------------------------------*/
 /*------------------------------------------------------------------------------------*/
 @media all and (min-width: 720px) and (max-width: 1023px) {
-  #background{background-color:rgb(35, 49, 56);background-image:url("https://scriptkitti.github.io/Images/HomePage.png");background-position:center 0px;background-repeat:no-repeat;background-size:120% auto;height:100%;left:0px;position:fixed;top:0px;width:100%;z-index:-2;}
+  #background{background-color:rgb(62, 69, 76);background-image:url("https://scriptkitti.github.io/Images/HomePage.png");background-position:center 0px;background-repeat:no-repeat;background-size:120% auto;height:100%;left:0px;position:fixed;top:0px;width:100%;z-index:-2;}
   header{height:250px;left:0px;margin:0;padding:0;position:relative;right:0px;top:0px;width:auto;z-index:21;}
   #large-box{height:auto;left:0px;margin-bottom:0px;position:relative;right:0px;top:0px;width:100%;z-index:22;}
   #little-box{height:auto;left:0px;margin-bottom:10px;position:relative;right:0px;top:0px;width:100%;z-index:22;}
@@ -43,7 +43,7 @@ hr{background-color:rgb(35, 49, 56);border:0px solid;height:3px;margin-top:0px;}
 /*--------------------------------------Phablet---------------------------------------*/
 /*------------------------------------------------------------------------------------*/
 @media all and (min-width: 480px) and (max-width: 719px) {
-  #background{background-color:rgb(35, 49, 56);background-image:url("https://scriptkitti.github.io/Images/HomePage.png");background-position:center 0px;background-repeat:no-repeat;background-size:140% auto;height:100%;left:0px;position:fixed;top:0px;width:100%;z-index:-2;}
+  #background{background-color:rgb(62, 69, 76);background-image:url("https://scriptkitti.github.io/Images/HomePage.png");background-position:center 0px;background-repeat:no-repeat;background-size:140% auto;height:100%;left:0px;position:fixed;top:0px;width:100%;z-index:-2;}
   header{height:250px;left:0px;margin:0;padding:0;position:relative;right:0px;top:0px;width:auto;z-index:21;}
   #large-box{height:auto;left:0px;margin-bottom:0px;position:relative;right:0px;top:0px;width:100%;z-index:22;}
   #little-box{height:auto;left:0px;margin-bottom:10px;position:relative;right:0px;top:0px;width:100%;z-index:22;}
@@ -55,7 +55,7 @@ hr{background-color:rgb(35, 49, 56);border:0px solid;height:3px;margin-top:0px;}
 /*---------------------------------------Mobile---------------------------------------*/
 /*------------------------------------------------------------------------------------*/
 @media all and (max-width: 479px) {
-  #background{background-color:rgb(35, 49, 56);background-image:url("https://scriptkitti.github.io/Images/HomePage.png");background-position:center 0px;background-repeat:no-repeat;background-size:170% auto;height:100%;left:0px;position:fixed;top:0px;width:100%;z-index:-2;}
+  #background{background-color:rgb(62, 69, 76);background-image:url("https://scriptkitti.github.io/Images/HomePage.png");background-position:center 0px;background-repeat:no-repeat;background-size:170% auto;height:100%;left:0px;position:fixed;top:0px;width:100%;z-index:-2;}
   header{height:150px;left:0px;margin:0;padding:0;position:relative;right:0px;top:0px;width:auto;z-index:21;}
   #large-box{height:auto;left:0px;margin-bottom:0px;position:relative;right:0px;top:0px;width:100%;z-index:22;}
   #little-box{height:auto;left:0px;margin-bottom:10px;position:relative;right:0px;top:0px;width:100%;z-index:22;}
