@@ -1,5 +1,5 @@
 //--------------------------------------------------LOADING MAIN
-$(document).ready(function(headerHeight, curScroll, imgPerc, imgPos, imgSize, factor) {
+$(document).ready(function(headerHeight, curScroll, imgPerc, imgPos, imgSize, factor, reference) {
   if (screen.width < 480) {
     headerHeight = 150;
     imgPerc = 170;
@@ -48,45 +48,37 @@ $(document).ready(function(headerHeight, curScroll, imgPerc, imgPos, imgSize, fa
     }
   });
   
-  fillPage();
   getFacebookCount();
   getTwitterCount();
   getPinterestCount();
   getLinkedInCount();
 });
 
-function fillPage() {
-  $.getJSON('http://scriptkitti.github.io//Updates.json', function(data) {
-    for (a = 0; a < data.latest.length; a++) {
-      $('.latest-' + (a + 1)).attr('onclick', 'window.open("' + data.latest[a].link + '", "_blank");');
-      $('.latest-title-' + (a + 1)).text(data.latest[a].title);
-      $('.latest-image-' + (a + 1)).attr('src', data.latest[a].image);
-      $('.latest-description-' + (a + 1)).text(data.latest[a].description);
-    }
-  });
-}
-
 //--------------------------------------------------GET SOCIAL COUNTS
 function getFacebookCount() {
-  $.getJSON('https://graph.facebook.com/?id=https://scriptkitti.github.io', function(data) {
+  reference = $('#facebook-count').attr('reference');
+  $.getJSON('https://graph.facebook.com/?id=' + reference, function(data) {
     var facebook = data.shares;
     $('#facebook-count').text(facebook);
   });
 }
 function getTwitterCount() {
-  $.getJSON('https://cdn.api.twitter.com/1/urls/count.json?url=https://scriptkitti.github.io&callback=?', function(data) {
+  reference = $('#twitter-count').attr('reference');
+  $.getJSON('https://cdn.api.twitter.com/1/urls/count.json?url=' + reference + '&callback=?', function(data) {
     var twitter = data.count;
     $('#twitter-count').text(twitter);
   });
 }
 function getPinterestCount() {
-  $.getJSON('https://api.pinterest.com/v1/urls/count.json?callback%20&url=https://scriptkitti.github.io', function(data) {
+  reference = $('#pinterest-count').attr('reference');
+  $.getJSON('https://api.pinterest.com/v1/urls/count.json?callback%20&url=' + reference, function(data) {
     var pinterest = data.count;
     $('#pinterest-count').text(pinterest);
   });
 }
 function getLinkedInCount() {
-  $.getJSON('https://www.linkedin.com/countserv/count/share?url=https://scriptkitti.github.io&callback=?', function(data) {
+  reference = $('#linkedin-count').attr('reference');
+  $.getJSON('https://www.linkedin.com/countserv/count/share?url=' + reference + '&callback=?', function(data) {
     var linkedin = data.count;
     $('#linkedin-count').text(linkedin);
   });
