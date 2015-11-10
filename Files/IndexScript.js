@@ -60,7 +60,7 @@ function fillPage() {
     for (a = 0; a < data.latest.length; a++) {
       $('latest-' + (a + 1)).attr('onclick', 'window.location("' + data.latest[a].link + '", "_blank");');
       $('latest-title-' + (a + 1)).text() = data.latest[a].title;
-      $('latest-image-' + (a + 1)).text() = data.latest[a].image;
+      $('latest-image-' + (a + 1)).attr('src', data.latest[a].image);
       $('latest-description-' + (a + 1)).text() = data.latest[a].description;
     }
   });
