@@ -1,5 +1,5 @@
 //--------------------------------------------------LOADING MAIN
-$(document).ready(function(headerHeight, curScroll, imgPerc, imgPos, imgSize, factor, reference) {
+(function(headerHeight, curScroll, imgPerc, imgPos, imgSize, factor, reference) {
   if (screen.width < 480) {
     headerHeight = 150;
     imgPerc = 170;
@@ -52,7 +52,7 @@ $(document).ready(function(headerHeight, curScroll, imgPerc, imgPos, imgSize, fa
   getTwitterCount();
   getPinterestCount();
   getLinkedInCount();
-});
+})();
 
 //--------------------------------------------------GET SOCIAL COUNTS
 function getFacebookCount() {
