@@ -81,5 +81,5 @@ function SKGistUpdate(username, password, _public, fileName, content, confirm) {
   });
 }
 
-SKGistCreate('scriptkitti@gmail.com', 'Fr0g1-10t', 'pleasework.json', false, $.parseJSON('{"popularity": {}}'));
-//SKGistUpdate('', '', 'erejhrjt', false, 'pleasework.json', 'hi', true);
+SKGistCreate('scriptkitti@gmail.com', 'Fr0g1-10t', 'please.txt', false, 'dsdsd');
+//SKGistUpdate('', '', 'erejhrjt', false, 'please.txt', 'hi', true);
