@@ -3,25 +3,25 @@
       "title": "Parallax Scrolling Effect",
       "image": "http://scriptkitti.github.io/Images/jQuerySupport.png",
       "description": "Create a parallax scrolling effect when the object is moved up and down the screen causing it to slowly move. It also has a bounce effect when the object goes past a certain point.",
-      "link": "http://scriptkitti.github.io/articles/parallaxscrolljavascript"
+      "link": "http://scriptkitti.github.io/articles/parallaxeffect"
     },
     {
       "title": "JavaScript Blob",
       "image": "http://scriptkitti.github.io/Images/JavaScriptSupport.png",
       "description": "Use it to download files quickly and convert files to other formats. It is a quick way of managing and manipulating files.",
-      "link": "http://scriptkitti.github.io/articles/javascriptblob"
+      "link": "http://scriptkitti.github.io/articles/blob"
     },
     {
       "title": "jQuery Social Counts",
       "image": "http://scriptkitti.github.io/Images/jQuerySupport.png",
       "description": "Get share, like, ... counts from Facebook, Twitter, ...",
-      "link": "http://scriptkitti.github.io/articles/jquerysocialcounts"
+      "link": "http://scriptkitti.github.io/articles/socialcounts"
     },
     {
-      "title": "",
-      "image": "",
-      "description": "",
-      "link": ""
+      "title": "Custom comment/forum For Your Website",
+      "image": "http://scriptkitti.github.io/Images/jQuerySupport.png",
+      "description": "No need for third-parties to have a commenting system for your website. Using Google Forms and jQuery to fetch the comments from the spreadsheet.",
+      "link": "http://scriptkitti.github.io/articles/customcomment"
     },
     {
       "title": "",
