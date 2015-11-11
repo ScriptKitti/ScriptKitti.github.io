@@ -1,17 +1,17 @@
 (function() {
-  function(object, factor) {
+  function(object, factor, percentage) {
     $(window).scroll(function() {
       if ($(window).scrollTop() >= 0) {
-        var imgPos = ($(window).scrollTop() / factor) * -1;
+        var position = ($(window).scrollTop() / factor) * -1;
         
         $(object).css({
-          'background-position': 'center ' + imgPos + 'px'
+          'background-position': 'center ' + position + 'px'
         });
       } else {
-        var imgSize = 100 - ($(window).scrollTop() / factor);
+        var size = percentage - ($(window).scrollTop() / factor);
         
         $(object).css({
-          'background-size': imgSize + '%'
+          'background-size': size + '%'
         });
       }
     });
