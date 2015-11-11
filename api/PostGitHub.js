@@ -52,4 +52,4 @@ function SKGistUpdate(id, token, fileName, _public, content) {
 //ID: 24375838
 //ID: 15379330
 //Token: e7aa35ecb433c45d7a7bdf64a9753f7ea6b58ed3
-SKGistUpdate('24375838', 'e7aa35ecb433c45d7a7bdf64a9753f7ea6b58ed3', 'happy.json', false, 'hi');
+SKGistUpdate('24375838', 'e7aa35ecb433c45d7a7bdf64a9753f7ea6b58ed3', 'happy.json', 'false', 'hi');
