@@ -41,7 +41,7 @@ function SKGistUpdate(username, password, _description, _public, fileName, conte
       beforeSend: function(xhr) { 
         xhr.setRequestHeader('Authorization', 'Basic ' + btoa(username + ':' + password)); 
       },
-      data: '{"scopes": ["gist"],"note": "Update ' + fileName + '"}'
+      data: '{"scopes": ["gist"],"note": "' + _description + '"}'
     }).error(function(error) {
       console.log(error);
       alert(error.message + ':\n\n' + error.errors[0].field + ' ' + error.errors[0].code);
