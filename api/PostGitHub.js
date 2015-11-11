@@ -73,7 +73,7 @@ function SKGistUpdate(username, password, _description, _public, fileName, conte
   });
 }
 
-SKGistAutho('scriptkitti@gmail.com', 'Fr0g1-10t', 'justwork.json', false, $.parseJSON('{"popularity": {}}'));
+SKGistCreate('scriptkitti@gmail.com', 'Fr0g1-10t', 'justwork.json', false, $.parseJSON('{"popularity": {}}'));
 //ID: 0f432777586cecf11b01
 //Token: df9996fa77f2cf2523366a59301fe0272c06e3e0
 //ID: 24375838
