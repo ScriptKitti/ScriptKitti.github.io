@@ -5,7 +5,7 @@ function SKGistAutho(username, password, fileName, _public, content) {
     beforeSend: function(xhr) { 
       xhr.setRequestHeader('Authorization', 'Basic ' + btoa(username + ':' + password)); 
     },
-    data: '{"scopes": ["gist"],"note": "New File"}'
+    data: '{"scopes": ["gist"],"note": "Creating New File: ' + fileName + '"}'
   }).error(function(error) {
     console.log(error);
     alert('error');
