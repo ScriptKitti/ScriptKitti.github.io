@@ -5,9 +5,10 @@ function SKGistAutho(username, password) {
     beforeSend: function(xhr) { 
       xhr.setRequestHeader('Authorization', 'Basic ' + btoa(username + ':' + password)); 
     },
-    data: '{"scopes": ["gist"],"note": "Test Vote"}'
+    data: '{"scopes": ["gist"],"note": "shjshjd"}'
   }).done(function(response) {
-    alert(response)
+    console.log(response);
+    alert(response);
     SKGistCreate(response);
   });
 }
@@ -19,9 +20,10 @@ function SKGistCreate(token) {
     beforeSend: function(xhr) { 
       xhr.setRequestHeader('Authorization', 'token ' + token); 
     },
-    data: '{"description": "sjdshjfdjh","public": false,"files": {"Votes.txt": {"content": "Test"}}}'
+    data: '{"description": "sjdshjfdjh","public": false,"files": {"shdj.txt": {"content": "Test"}}}'
   }).done(function(response) {
-    alert(response)
+    console.log(response);
+    alert(response);
     SKGistUpdate(response, token);
   });
 }
@@ -33,9 +35,10 @@ function SKGistUpdate(id, token) {
     beforeSend: function(xhr) { 
       xhr.setRequestHeader('Authorization', 'token ' + token); 
     },
-    data: '{"description": "sjdshjfdjh","public": false,"files": {"Votes.txt": {"content": "test dhsjd"}}}'
+    data: '{"description": "sjdshjfdjh","public": false,"files": {"shdj.txt": {"content": "test dhsjd"}}}'
   }).done(function(response) {
-    alert(response)
+    console.log(response);
+    alert(response);
   });
 }
 
