@@ -1,6 +1,4 @@
-function SKPostGitHub(username, password) {
-  var token, id;
-  
+function SKGistAutho(username, password) {
   $.ajax({ 
     url: 'https://api.github.com/authorizations',
     type: 'POST',
@@ -10,9 +8,11 @@ function SKPostGitHub(username, password) {
     data: '{"scopes": ["gist"],"note": "Test Vote"}'
   }).done(function(response) {
     alert(response)
-    token = response;
+    SKGistCreate(response);
   });
-  
+}
+
+function SKGistCreate(token) {
   $.ajax({ 
     url: 'https://api.github.com/gists',
     type: 'POST',
@@ -22,9 +22,11 @@ function SKPostGitHub(username, password) {
     data: '{"description": "Vote From User","public": false,"files": {"Votes.txt": {"content": "Test"}}}'
   }).done(function(response) {
     alert(response)
-    id = response;
+    SKGistUpdate(response, token);
   });
-  
+}
+
+function SKGistUpdate(id, token) {
   $.ajax({ 
     url: 'https://api.github.com/gists/' + id,
     type: 'PATCH',
@@ -36,4 +38,5 @@ function SKPostGitHub(username, password) {
     alert(response)
   });
 }
-SKPostGitHub('scriptkitti@gmail.com', 'Fr0g1-10t');
+
+SKGistAutho('scriptkitti@gmail.com', 'Fr0g1-10t');
