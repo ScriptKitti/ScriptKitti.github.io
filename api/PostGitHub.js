@@ -45,7 +45,7 @@ function SKGistUpdate(username, password, _description, _public, fileName, conte
     data: '{"scopes": ["gist"],"note": "Update ' + fileName + ' at ' + date.getTime() + '"}'
   }).error(function(error) {
     console.log(error);
-    alert(error.message + ':\n\n' + error.['errors'][0].field + ' ' + error.['errors'][0].code);
+    alert(error.message + ':\n\n' + error.errors[0].field + ' ' + error.errors[0].code);
   }).done(function(response) {
     token = response.token;
     id = response.id;
