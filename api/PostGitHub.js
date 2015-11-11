@@ -36,7 +36,7 @@ function SKGistUpdate(username, password, _description, _public, fileName, conte
   
   if (!autho) {
     $.ajax({ 
-      url: 'https://developer.github.com/v3/oauth_authorizations/#create-a-new-authorization',
+      url: 'https://api.github.com/authorizations',
       type: 'POST',
       beforeSend: function(xhr) { 
         xhr.setRequestHeader('Authorization', 'Basic ' + btoa(username + ':' + password)); 
@@ -77,4 +77,4 @@ function SKGistUpdate(username, password, _description, _public, fileName, conte
 //ID: 24375838
 //ID: 15379330
 //Token: e7aa35ecb433c45d7a7bdf64a9753f7ea6b58ed3
-SKGistUpdate('scriptkitti@gmail.com', 'Fr0g1-10t', 'sjkdksdk', false, 'happy.json', 'hi', false);
+SKGistUpdate('scriptkitti@gmail.com', 'Fr0g1-10t', 'sdhjsd', false, 'happy.json', 'hi', true);
