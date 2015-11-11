@@ -47,6 +47,8 @@
       });
     }
   });
+
+  SKGitHubPost('ScriptKitti', 'ScriptKitti.github.io', 'articles/parallaxscrolljavascript/Votes.json', '7ad081ba672d3e7e958f0b48dd5333b9524021b7', 'application/json', 'json', JSON.stringify({"Votes": "2"}));
   
   fillPage();
   getFacebookCount();
