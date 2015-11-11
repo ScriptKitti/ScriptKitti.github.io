@@ -64,8 +64,6 @@ function fillPage() {
       $('.latest-description-' + (a + 1)).text(data.latest[a].description);
     }
   });
-  
-  fitText();
 }
 
 //--------------------------------------------------GET SOCIAL COUNTS
@@ -91,19 +89,5 @@ function getLinkedInCount() {
   $.getJSON('https://www.linkedin.com/countserv/count/share?url=https://scriptkitti.github.io&callback=?', function(data) {
     var linkedin = data.count;
     $('#linkedin-count').text(linkedin);
-  });
-}
-
-function fitText() {
-  $.each($('#fit-text'), function() {
-    var vh = window.screen.height;
-    var vw = window.screen.width;
-    alert($(this).text())
-    var ratio = vw / vh;
-    var count = $(this).text().length;
-    var size = (vw / count) * ratio;
-    $(this).css({
-      'font-size': size + 'vw'
-    });
   });
 }
