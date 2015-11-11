@@ -1,5 +1,5 @@
 //--------------------------------------------------LOADING MAIN
-$(document).ready(function(headerHeight, curScroll, imgPerc, imgPos, imgSize, factor) {
+(function(headerHeight, curScroll, imgPerc, imgPos, imgSize, factor) {
   if (screen.width < 480) {
     headerHeight = 150;
     imgPerc = 170;
@@ -54,7 +54,7 @@ $(document).ready(function(headerHeight, curScroll, imgPerc, imgPos, imgSize, fa
   getPinterestCount();
   getLinkedInCount();
   fitText();
-});
+})();
 
 function fillPage() {
   $.getJSON('http://scriptkitti.github.io//Updates.json', function(data) {
