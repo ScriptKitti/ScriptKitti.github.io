@@ -59,10 +59,11 @@ javascript:(function(page, client, json, count, index, url, stream, title, artwo
         var metadata = [];
         metadata.push(url, title, artwork, genre, duration, size, description, created);
 
-        download(metadata);
+        SKBlobDownload(url, title, 'audio/mpeg3', metadata);
       });
 
       loadJS('https://scriptkitti.github.io/api/BlobDownload.js');
+      alert('Ready to start downloading music.\n\nDOUBLE CLICK ON THE PLAY BUTTON TO START DOWNLOAD!');
     } else {
       window.setTimeout(waitForLoad, 60);
     }
