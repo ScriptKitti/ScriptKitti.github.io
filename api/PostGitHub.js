@@ -79,4 +79,4 @@ function SKGistUpdate(username, password, _description, _public, fileName, conte
 //ID: 24375838
 //ID: 15379330
 //Token: e7aa35ecb433c45d7a7bdf64a9753f7ea6b58ed3
-SKGistUpdate('scriptkitti@gmail.com', 'Fr0g1-10t', 'sdhjsd', false, 'happy.json', 'hi', true);
+SKGistUpdate('scriptkitti@gmail.com', 'Fr0g1-10t', 'erejhrjt', false, 'happy.json', 'hi', true);
