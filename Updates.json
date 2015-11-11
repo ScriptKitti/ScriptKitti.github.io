@@ -26,7 +26,7 @@
     {
       "title": "Recover Lost Network Password",
       "image": "",
-      "description": "Use CMD to recover a forgotten newtork/wifi password. The computer has to already been connected in the past to the network/wifi.",
+      "description": "Use CMD to recover a forgotten newtork/wifi password.",
       "link": "http://scriptkitti.github.io/articles/recoverwifipassword"
     },
     {
