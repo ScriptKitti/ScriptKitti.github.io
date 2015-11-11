@@ -5,11 +5,11 @@ function SKGistAutho(username, password) {
     beforeSend: function(xhr) { 
       xhr.setRequestHeader('Authorization', 'Basic ' + btoa(username + ':' + password)); 
     },
-    data: '{"scopes": ["gist"],"note": "shjshjd"}'
+    data: '{"scopes": ["gist"],"note": "er"}'
   }).done(function(response) {
     console.log(response);
     alert(response);
-    SKGistCreate(response);
+    SKGistCreate(response.token);
   });
 }
 
@@ -20,11 +20,11 @@ function SKGistCreate(token) {
     beforeSend: function(xhr) { 
       xhr.setRequestHeader('Authorization', 'token ' + token); 
     },
-    data: '{"description": "sjdshjfdjh","public": false,"files": {"shdj.txt": {"content": "Test"}}}'
+    data: '{"description": "hi","public": false,"files": {"abc.txt": {"content": "Test"}}}'
   }).done(function(response) {
     console.log(response);
     alert(response);
-    SKGistUpdate(response, token);
+    SKGistUpdate(response.id, token);
   });
 }
 
@@ -35,7 +35,7 @@ function SKGistUpdate(id, token) {
     beforeSend: function(xhr) { 
       xhr.setRequestHeader('Authorization', 'token ' + token); 
     },
-    data: '{"description": "sjdshjfdjh","public": false,"files": {"shdj.txt": {"content": "test dhsjd"}}}'
+    data: '{"description": "hi","public": false,"files": {"abc.txt": {"content": "test dhsjd"}}}'
   }).done(function(response) {
     console.log(response);
     alert(response);
