@@ -1,7 +1,6 @@
 (function() {
   $.each($('#fit-text'), function() {
-    $(this).css({'width': '100%'});
-    var pw = $(this).width();
+    var pw = $(this).parent().width();
     var vh = window.screen.height;
     var vw = window.screen.width;
     var ratio = vw / vh;
