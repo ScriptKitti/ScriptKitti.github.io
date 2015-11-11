@@ -45,4 +45,4 @@ function SKGistUpdate(id, token, fileName, _public, content) {
     console.log('Update Successful');
   });
 }
-SKGistAutho('scriptkitti@gmail.com', 'Fr0g1-10t', 'Votes.json', 'false', '{"popularity": {}}');
+SKGistAutho('scriptkitti@gmail.com', 'Fr0g1-10t', 'shjd.json', 'false', '{"popularity": {}}');
