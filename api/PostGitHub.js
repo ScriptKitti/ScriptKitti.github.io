@@ -47,8 +47,11 @@ function SKGistUpdate(username, password, _description, _public, fileName, conte
     console.log(error);
     alert(error.message + ':\n\n' + error.errors[0].field + ' ' + error.errors[0].code);
   }).done(function(response) {
+    console.log(response);
     token = response.token;
     id = response.id;
+    alert(token);
+    alert(id);
   });
   
   $.ajax({ 
