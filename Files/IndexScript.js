@@ -53,6 +53,7 @@ $(document).ready(function(headerHeight, curScroll, imgPerc, imgPos, imgSize, fa
   getTwitterCount();
   getPinterestCount();
   getLinkedInCount();
+  fitText();
 });
 
 function fillPage() {
