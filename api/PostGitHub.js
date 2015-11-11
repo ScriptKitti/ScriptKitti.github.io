@@ -1,5 +1,5 @@
 (function() {
-  function SKGitHubPost(username, repo, dir, token, cType, dType, content) {
+  function SKPostGitHub(username, repo, dir, token, cType, dType, content) {
     var urlConstruct = 'https://api.github.com/repos/' + username + '/' + repo + '/contents/' + dir + '?access_token=' + token;
     $.ajax({
       type: 'POST',
