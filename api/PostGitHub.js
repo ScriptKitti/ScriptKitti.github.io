@@ -45,4 +45,7 @@ function SKGistUpdate(id, token, fileName, _public, content) {
     console.log('Update Successful');
   });
 }
-SKGistAutho('scriptkitti@gmail.com', 'Fr0g1-10t', 'hjssd.json', false, $.parseJSON('{"popularity": {}}'));
+//SKGistAutho('scriptkitti@gmail.com', 'Fr0g1-10t', 'hjssd.json', false, $.parseJSON('{"popularity": {}}'));
+//ID: 0f432777586cecf11b01
+//Token: df9996fa77f2cf2523366a59301fe0272c06e3e0
+SKGistUpdate('0f432777586cecf11b01', 'df9996fa77f2cf2523366a59301fe0272c06e3e0', 'hjssd.json', false, 'hi');
