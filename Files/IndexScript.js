@@ -53,7 +53,6 @@
   getTwitterCount();
   getPinterestCount();
   getLinkedInCount();
-  fitText();
 })();
 
 function fillPage() {
@@ -65,6 +64,8 @@ function fillPage() {
       $('.latest-description-' + (a + 1)).text(data.latest[a].description);
     }
   });
+  
+  fitText();
 }
 
 //--------------------------------------------------GET SOCIAL COUNTS
