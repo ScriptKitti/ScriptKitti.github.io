@@ -10,11 +10,11 @@ function SKGistAutho(username, password, fileName, _public, content) {
     console.log(error);
     alert('error');
   }).done(function(response) {
-    SKGistCreate(response.token, fileName, _public, content);
+    SKGistCreate(response.id, response.token, fileName, _public, content);
   });
 }
 
-function SKGistCreate(token, fileName, _public, content) {
+function SKGistCreate(id, token, fileName, _public, content) {
   $.ajax({ 
     url: 'https://api.github.com/gists',
     type: 'POST',
@@ -26,7 +26,7 @@ function SKGistCreate(token, fileName, _public, content) {
     console.log(error);
     alert('error');
   }).done(function(response) {
-    alert('ID: ' + response.owner.id + '\nToken: ' + token + '\n\nTo edit this file, remember these details.');
+    alert('ID: ' + id + '\nToken: ' + token + '\n\nTo edit this file, remember these details.');
   });
 }
 
