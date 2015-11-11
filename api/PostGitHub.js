@@ -2,21 +2,6 @@ function SKPostGitHub(username, password) {
   //SKPostGitHub(username, repo, dir, token, cType, dType, content) Get Github Authorization Token with proper scope, print to console
   var token, id;
   
-  // $.ajax({ 
-  //   url: 'https://api.github.com/authorizations',
-  //   type: 'POST',
-  //   beforeSend: function(xhr) { 
-  //     xhr.setRequestHeader('Authorization', 'Basic ' + btoa(username + ':' + password)); 
-  //   },
-  //   data: {
-  //     'scopes': ['gist'],
-  //     'note': 'Test Vote'
-  //   }
-  // }).done(function(response) {
-  //   console.log(response);
-  //   token = response;
-  // });
-  
   $.ajax({ 
     url: 'https://api.github.com/authorizations',
     type: 'POST',
@@ -25,8 +10,7 @@ function SKPostGitHub(username, password) {
     },
     data: '{"scopes": ["gist"],"note": "Test Vote"}'
   }).done(function(response) {
-    console.log(response);
-    token = response;
+    token = response.token;
   });
   
   //Create a Gist with token from above
@@ -36,15 +20,7 @@ function SKPostGitHub(username, password) {
     beforeSend: function(xhr) { 
       xhr.setRequestHeader('Authorization', 'token ' + token); 
     },
-    data: {
-      'description': 'Vote From User',
-      'public': false,
-      'files': {
-        'Votes.txt': {
-          'content': 'Test'
-        }
-      }
-    }
+    data: '{"description": "Vote From User","public": false,"files": {"Votes.txt": {"content": "Test"}}}'
   }).done(function(response) {
     console.log(response);
     id = response;
