@@ -2,13 +2,13 @@
   "latest": [{
       "title": "Parallax Scrolling Effect",
       "image": "http://scriptkitti.github.io/Images/jQuerySupport.png",
-      "description": "Create a parallax scrolling effect when the object is moved up and down the screen.",
+      "description": "Create a parallax scrolling effect when the object is moved up and down the screen causing it to slowly move. It also has a bounce effect when the object goes past a certain point.",
       "link": "http://scriptkitti.github.io/articles/parallaxscrolljavascript"
     },
     {
       "title": "JavaScript Blob",
       "image": "http://scriptkitti.github.io/Images/JavaScriptSupport.png",
-      "description": "Use the blob to convert, download, ... anything super fast.",
+      "description": "Use it to download files quickly and convert files to other formats. It is a quick way of managing and manipulating files.",
       "link": "http://scriptkitti.github.io/articles/javascriptblob"
     },
     {
