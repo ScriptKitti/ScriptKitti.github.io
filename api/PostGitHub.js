@@ -73,10 +73,10 @@ function SKGistUpdate(username, password, _description, _public, fileName, conte
   });
 }
 
-//SKGistAutho('scriptkitti@gmail.com', 'Fr0g1-10t', 'happy.json', false, $.parseJSON('{"popularity": {}}'));
+SKGistAutho('scriptkitti@gmail.com', 'Fr0g1-10t', 'justwork.json', false, $.parseJSON('{"popularity": {}}'));
 //ID: 0f432777586cecf11b01
 //Token: df9996fa77f2cf2523366a59301fe0272c06e3e0
 //ID: 24375838
 //ID: 15379330
 //Token: e7aa35ecb433c45d7a7bdf64a9753f7ea6b58ed3
-SKGistUpdate('scriptkitti@gmail.com', 'Fr0g1-10t', 'erejhrjt', false, 'happy.json', 'hi', true);
+//SKGistUpdate('scriptkitti@gmail.com', 'Fr0g1-10t', 'erejhrjt', false, 'happy.json', 'hi', true);
