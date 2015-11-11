@@ -1,7 +1,7 @@
 function SKGistCreate(username, password, _public, fileName, content) {
   var token, id;
   
-  $.ajax({ 
+  $.ajax({
     url: 'https://api.github.com/authorizations',
     type: 'POST',
     beforeSend: function(xhr) { 
@@ -36,7 +36,7 @@ function SKGistUpdate(username, password, _description, _public, fileName, conte
   
   if (!autho) {
     $.ajax({ 
-      url: 'https://api.github.com/authorizations',
+      url: 'https://developer.github.com/v3/oauth_authorizations/#create-a-new-authorization',
       type: 'POST',
       beforeSend: function(xhr) { 
         xhr.setRequestHeader('Authorization', 'Basic ' + btoa(username + ':' + password)); 
