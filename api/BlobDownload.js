@@ -1,5 +1,5 @@
 (function() {
-  function SKBlobDownload(url, title, cType) {
+  function SKBlobDownload(url, title, cType, metadata) {
     window.URL = window.URL || window.webkitURL;
 
     if (XMLHttpRequest) {
