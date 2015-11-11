@@ -19,7 +19,7 @@ function SKGistCreate(token) {
     beforeSend: function(xhr) { 
       xhr.setRequestHeader('Authorization', 'token ' + token); 
     },
-    data: '{"description": "Vote From User","public": false,"files": {"Votes.txt": {"content": "Test"}}}'
+    data: '{"description": "sjdshjfdjh","public": false,"files": {"Votes.txt": {"content": "Test"}}}'
   }).done(function(response) {
     alert(response)
     SKGistUpdate(response, token);
@@ -33,7 +33,7 @@ function SKGistUpdate(id, token) {
     beforeSend: function(xhr) { 
       xhr.setRequestHeader('Authorization', 'token ' + token); 
     },
-    data: '{"description": "Votes From User","public": false,"files": {"Votes.txt": {"content": "test dhsjd"}}}'
+    data: '{"description": "sjdshjfdjh","public": false,"files": {"Votes.txt": {"content": "test dhsjd"}}}'
   }).done(function(response) {
     alert(response)
   });
