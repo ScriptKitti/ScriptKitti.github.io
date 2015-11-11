@@ -63,6 +63,12 @@ function fillPage() {
       $('.latest-image-' + (a + 1)).attr('src', data.latest[a].image);
       $('.latest-description-' + (a + 1)).text(data.latest[a].description);
     }
+    for (a = 0; a < data.popular.length; a++) {
+      $('.popular-' + (a + 1)).attr('href', data.popular[a].link);
+      $('.popular-title-' + (a + 1)).text(data.popular[a].title);
+      $('.popular-image-' + (a + 1)).attr('src', data.popular[a].image);
+      $('.popular-description-' + (a + 1)).text(data.popular[a].description);
+    }
   });
 }
 
