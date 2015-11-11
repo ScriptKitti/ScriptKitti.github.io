@@ -1,5 +1,5 @@
 function SKGistCreate(username, password, _public, fileName, content) {
-  var token, id;
+  var token, _id;
   var date = new Date();
   
   $.ajax({
@@ -14,7 +14,7 @@ function SKGistCreate(username, password, _public, fileName, content) {
     alert(error.message + ':\n\n' + error.errors[0].field + ' ' + error.errors[0].code);
   }).done(function(response) {
     token = response.token;
-    id = response.id;
+    _id = response.id;
   });
   
   $.ajax({ 
@@ -28,12 +28,12 @@ function SKGistCreate(username, password, _public, fileName, content) {
     console.log(error);
     alert('error: ' + error.message);
   }).done(function(response) {
-    alert('ID: ' + id + '\nToken: ' + token + '\n\nTo edit this file, remember these details.');
+    alert('ID: ' + _id + '\nToken: ' + token + '\n\nTo edit this file, remember these details.');
   });
 }
 
 function SKGistUpdate(username, password, _description, _public, fileName, content, confirm) {
-  var token, id;
+  var token, _id;
   var date = new Date();
   
   $.ajax({ 
@@ -49,13 +49,13 @@ function SKGistUpdate(username, password, _description, _public, fileName, conte
   }).done(function(response) {
     console.log(response);
     token = response.token;
-    id = response.id;
+    _id = response.id;
     alert(token);
-    alert(id);
+    alert(_id);
   });
   
   $.ajax({ 
-    url: 'https://api.github.com/gists/' + id,
+    url: 'https://api.github.com/gists/' + _id,
     type: 'PATCH',
     beforeSend: function(xhr) { 
       xhr.setRequestHeader('Authorization', 'token ' + token); 
