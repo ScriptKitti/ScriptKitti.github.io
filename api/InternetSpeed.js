@@ -38,11 +38,11 @@ function SKDownloadTest(object, size) {
       size = size.toLowerCase();
       
       if (size == 'bps') {
-        $(object).text(bps);
+        $(object).text(bps + 'bps');
       } else if (size == 'kbps') {
-        $(object).text(kbps);
+        $(object).text(kbps + 'kbps');
       } else {
-        $(object).text(mbps);
+        $(object).text(mbps + 'Mbps');
       }
     } else {
       $(object).text('Page Not Found');
