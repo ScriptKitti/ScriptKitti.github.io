@@ -1,10 +1,11 @@
-function SKPngTest(object) {
+function SKPingTest(object) {
   var start, end, ping;
   
   start = (new Date()).getTime();
   
   $.ajax({
-    url: '',
+    type: 'GET',
+    url: 'http://scriptkitti.github.io?antiCache=' + start,
     success: function(result) {
       end = (new Date()).getTime();
       ping = end - start;
@@ -23,7 +24,8 @@ function SKDownloadTest(object, size) {
   start = (new Date()).getTime();
   
   $.ajax({
-    url: '',
+    type: 'GET',
+    url: 'http://scriptkitti.github.io?antiCache=' + start,
     success: function(result) {
       end = (new Date()).getTime();
       ping = (end - start) / 1000;
@@ -34,6 +36,21 @@ function SKDownloadTest(object, size) {
     var request = new XMLHttpRequest();
   } else if (ActiveXObject) {
     var request = new ActiveXObject('Microsoft.XMLHTTP');
+  }
+  
+  request.open('GET', imageURL, true);
+  request.send();
+  
+  request.onreadystatechange = function() {
+    if (request.status == 200) {
+      if (request.readyState == 2) {
+        console.log('Ready');
+      } else if (request.readyState == 4) {
+        console.log('Complete');
+      }
+    } else {
+      $(object).text('Page Not Found');
+    }
   }
   
   request.onprogress = function(event) {    
@@ -59,25 +76,4 @@ function SKDownloadTest(object, size) {
       $(object).text(mbps + ' Mbps');
     }
   }
-  
-  request.responseType = 'arraybuffer';
-  request.open('GET', imageURL, true);
-  var contentType = request.getResponseHeader('Content-Type') || 'image/jpeg';
-  request.send();
-  
-  request.onreadystatechange = function() {
-    if (request.status == 200) {
-      if (request.readyState == 2) {
-        console.log('Ready');
-      } else if (request.readyState == 4) {
-        console.log('Complete');
-      }
-    } else {
-      $(object).text('Page Not Found');
-    }
-  }
-}
-
-function SKUploadTest() {
-  return ;
 }
