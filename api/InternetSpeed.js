@@ -6,6 +6,7 @@ function SKDownloadTest(size) {
   var date = new Date();
   var imageURL = 'http://scriptkitti.github.io/Images/ScriptKitti.png';
   var start, end, antiCache;
+  var imageSize = 174057;
   
   antiCache = '?antiCache=' + date.getTime();
   imageURL = imageURL + antiCache;
@@ -30,7 +31,7 @@ function SKDownloadTest(size) {
       }
       
       var duration = (end - start) / 1000;
-      var length = request.getResponseHeader('Content-Length') * 8;
+      var length = imageSize * 8;
       var bps = (length / duration).toFixed(2);
       var kbps = (bps / 1024).toFixed(2);
       var mbps = (kbps / 1024).toFixed(2);
