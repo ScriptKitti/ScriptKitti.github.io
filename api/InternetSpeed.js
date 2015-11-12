@@ -2,13 +2,12 @@ function SKPingTest() {
   return ;
 }
 
-function SKDownloadTest(size) {
-  var date = new Date();
+function SKDownloadTest(object, size) {
   var imageURL = 'http://scriptkitti.github.io/Images/ScriptKitti.png';
   var start, end, antiCache;
   var imageSize = 174057;
   
-  antiCache = '?antiCache=' + date.getTime();
+  antiCache = '?antiCache=' + (new Date()).getTime();
   imageURL = imageURL + antiCache;
   
   if (XMLHttpRequest) {
@@ -25,10 +24,10 @@ function SKDownloadTest(size) {
   request.onreadystatechange = function() {
     if (request.status == 200) {
       if (request.readyState == 2) {
-        start = date.getTime();
-      } else if (request.readyState == 4) {
-        end = date.getTime();
+        start = (new Date()).getTime();
       }
+      
+      end = (new Date()).getTime();
       
       var duration = (end - start) / 1000;
       var length = imageSize * 8;
@@ -38,15 +37,15 @@ function SKDownloadTest(size) {
       
       size = size.toLowerCase();
       
-      if (size = 'bps') {
-        return bps;
-      } else if (size = 'kbps') {
-        return kbps;
+      if (size == 'bps') {
+        $(object).text(bps);
+      } else if (size == 'kbps') {
+        $(object).text(kbps);
       } else {
-        return mbps;
+        $(object).text(mbps);
       }
     } else {
-      return 'Page Not Found';
+      $(object).text('Page Not Found');
     }
   }
 }
