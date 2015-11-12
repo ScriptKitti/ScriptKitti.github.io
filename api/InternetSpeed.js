@@ -36,9 +36,11 @@ function SKDownloadTest(size) {
       var kbps = (bps / 1024).toFixed(2);
       var mbps = (kbps / 1024).toFixed(2);
       
-      if (size.toLowerCase() = 'bps') {
+      size = size.toLowerCase();
+      
+      if (size = 'bps') {
         return bps;
-      } else if (size.toLowerCase() = 'kbps') {
+      } else if (size = 'kbps') {
         return kbps;
       } else {
         return mbps;
