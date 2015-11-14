@@ -18,19 +18,31 @@ function SKGistCreate(username, password, _public, fileName, content) {
 }
 
 function SKGistPassedCreateAutho(id, token, _public, fileName, content, date) {
-  $.ajax({ 
+  //Create a Gist with token from above
+$.ajax({ 
     url: 'https://api.github.com/gists',
     type: 'POST',
     beforeSend: function(xhr) { 
-      xhr.setRequestHeader('Authorization', 'token ' + token); 
+        xhr.setRequestHeader("Authorization", "token " + token); 
     },
-    data: '{"description": "Created ' + fileName + ' at ' + date + '","public": ' + _public + ',"files": {"' + fileName + '": {"content": "' + content + '"}}}'
-  }).error(function(error) {
-    console.log(error);
-    alert('error: ' + error.message);
-  }).done(function(response) {
-    alert('ID: ' + id + '\nToken: ' + token + '\n\nTo edit this file, remember these details.');
-  });
+    data: '{"description": "a gist for a user with token api call via ajax","public": false,"files": {"' + fileName + '": {"content": "String file contents via ajax"}}}'
+}).done(function(response) {
+    console.log(response);
+});
+  
+  // $.ajax({ 
+  //   url: 'https://api.github.com/gists',
+  //   type: 'POST',
+  //   beforeSend: function(xhr) { 
+  //     xhr.setRequestHeader('Authorization', 'token ' + token); 
+  //   },
+  //   data: '{"description": "Created ' + fileName + ' at ' + date + '","public": ' + _public + ',"files": {"' + fileName + '": {"content": "' + content + '"}}}'
+  // }).error(function(error) {
+  //   console.log(error);
+  //   alert('error: ' + error.message);
+  // }).done(function(response) {
+  //   alert('ID: ' + id + '\nToken: ' + token + '\n\nTo edit this file, remember these details.');
+  // });
 }
 
 function SKGistUpdate(username, password, _public, fileName, content, confirm) {
