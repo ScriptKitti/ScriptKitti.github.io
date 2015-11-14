@@ -59,7 +59,7 @@ function SKGistPassedUpdateAutho(id, token, _public, fileName, content, confirm,
     beforeSend: function(xhr) { 
       xhr.setRequestHeader('Authorization', 'token ' + token); 
     },
-    data: '{"description": "Update ' + fileName + ' at ' + date + ': ' + _description + '","public": ' + _public + ',"files": {"' + fileName + '": {"content": "' + content + '"}}}'
+    data: '{"description": "Update ' + fileName + ' at ' + date + ' - ' + _description + '","public": ' + _public + ',"files": {"' + fileName + '": {"content": "' + content + '"}}}'
   }).error(function(error) {
     console.log(error);
     alert('error: ' + error.message);
