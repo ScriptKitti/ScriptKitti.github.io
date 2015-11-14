@@ -66,6 +66,6 @@ function SKGistUpdate(id, token, _description, _public, fileName, content, confi
   });
 }
 
-SKGistAccessToken('scriptkitti@gmail.com', 'Fr0g1-10t', 'Test');
+//SKGistAccessToken('scriptkitti@gmail.com', 'Fr0g1-10t', 'Test');
 //SKGistCreate('', false, 'Votes.json', 'jhhjbjjhbh jhbjh hhjb', true);
 //SKGistUpdate('', '', '', false, 'Votes.txt', 'hi', true);
