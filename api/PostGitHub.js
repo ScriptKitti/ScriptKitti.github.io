@@ -1,65 +1,59 @@
-function SKGistCreate(username, password, _public, fileName, content) {
-  var date = new Date();
-  date = date.getTime();
-  
+function SKGistAccessToken(username, password, tokenName) {
   $.ajax({
     url: 'https://api.github.com/authorizations',
     type: 'POST',
     beforeSend: function(xhr) { 
       xhr.setRequestHeader('Authorization', 'Basic ' + btoa(username + ':' + password)); 
     },
-    data: '{"scopes": ["gist"],"note": "Creating New File: ' + fileName + ' at ' + date + '"}'
+    data: '{"scopes": ["gist"],"note": "' + tokenName + '"}'
   }).error(function(error) {
     console.log(error);
     alert(error.message + ':\n\n' + error.errors[0].field + ' ' + error.errors[0].code);
   }).done(function(response) {
-    SKGistPassedCreateAutho(response.id, response.token, _public, fileName, content, date);
+    alert('ATTENTION\n\nID: ' + response.id + '\nToken: ' + response.token + '\n\nTo create and edit files, remember these details.');
   });
 }
 
-function SKGistPassedCreateAutho(id, token, _public, fileName, content, date) {
+function SKGistCreate(token, _public, fileName, content, confirm) {
+  var date = new Date();
+  var day = date.getDate();
+  var month = date.getMonth() + 1;
+  var year = date.getFullYear();
+  var today = day + '/' + month + '/' + year;
+  
   $.ajax({ 
     url: 'https://api.github.com/gists',
     type: 'POST',
     beforeSend: function(xhr) { 
       xhr.setRequestHeader('Authorization', 'token ' + token); 
     },
-    data: '{"description": "Created ' + fileName + ' at ' + date + '","public": ' + _public + ',"files": {"' + fileName + '": {"content": "' + content + '"}}}'
+    data: '{"description": "Created ' + fileName + ' on ' + today + '","public": ' + _public + ',"files": {"' + fileName + '": {"content": "' + content + '"}}}'
   }).error(function(error) {
     console.log(error);
     alert('error: ' + error.message);
   }).done(function(response) {
-    alert('ID: ' + id + '\nToken: ' + token + '\n\nTo edit this file, remember these details.');
+    if (confirm) {
+      alert('Create Successful');
+    } else {
+      console.log('Create Successful');
+    }
   });
 }
 
-function SKGistUpdate(username, password, _public, fileName, content, confirm) {
+function SKGistUpdate(id, token, _description, _public, fileName, content, confirm) {
   var date = new Date();
-  date = date.getTime();
+  var day = date.getDate();
+  var month = date.getMonth() + 1;
+  var year = date.getFullYear();
+  var today = day + '/' + month + '/' + year;
   
-  $.ajax({ 
-    url: 'https://api.github.com/authorizations',
-    type: 'POST',
-    beforeSend: function(xhr) { 
-      xhr.setRequestHeader('Authorization', 'Basic ' + btoa(username + ':' + password)); 
-    },
-    data: '{"scopes": ["gist"],"note": "Update ' + fileName + ' at ' + date + '"}'
-  }).error(function(error) {
-    console.log(error);
-    alert(error.message + ':\n\n' + error.errors[0].field + ' ' + error.errors[0].code);
-  }).done(function(response) {
-    SKGistPassedUpdateAutho(response.id, response.token, _public, fileName, content, confirm, date);
-  });
-}
-
-function SKGistPassedUpdateAutho(id, token, _public, fileName, content, confirm, date) {
   $.ajax({ 
     url: 'https://api.github.com/gists/' + id,
     type: 'PATCH',
     beforeSend: function(xhr) { 
       xhr.setRequestHeader('Authorization', 'token ' + token); 
     },
-    data: '{"description": "Update ' + fileName + ' at ' + date + ': ' + _description + '","public": ' + _public + ',"files": {"' + fileName + '": {"content": "' + content + '"}}}'
+    data: '{"description": "Updated ' + fileName + ' on ' + today + ': ' + _description + '","public": ' + _public + ',"files": {"' + fileName + '": {"content": "' + content + '"}}}'
   }).error(function(error) {
     console.log(error);
     alert('error: ' + error.message);
@@ -72,47 +66,6 @@ function SKGistPassedUpdateAutho(id, token, _public, fileName, content, confirm,
   });
 }
 
-SKGistCreate('scriptkitti@gmail.com', 'Fr0g1-10t', false, 'Votes.txt', 'jhhjbjjhbh jhbjh hhjb');
-SKGistUpdate('scriptkitti@gmail.com', 'Fr0g1-10t', false, 'Votes.txt', 'hi', true);
-
-
-
-// /*
-// Assuming jQuery Ajax instead of vanilla XHR
-// */
-
-// //Get Github Authorization Token with proper scope, print to console
-// $.ajax({ 
-//     url: 'https://api.github.com/authorizations',
-//     type: 'POST',
-//     beforeSend: function(xhr) { 
-//         xhr.setRequestHeader("Authorization", "Basic " + btoa("USERNAME:PASSWORD")); 
-//     },
-//     data: '{"scopes":["gist"],"note":"ajax gist test for a user"}'
-// }).done(function(response) {
-//     console.log(response);
-// });
-
-// //Create a Gist with token from above
-// $.ajax({ 
-//     url: 'https://api.github.com/gists',
-//     type: 'POST',
-//     beforeSend: function(xhr) { 
-//         xhr.setRequestHeader("Authorization", "token TOKEN-FROM-AUTHORIZATION-CALL"); 
-//     },
-//     data: '{"description": "a gist for a user with token api call via ajax","public": true,"files": {"file1.txt": {"content": "String file contents via ajax"}}}'
-// }).done(function(response) {
-//     console.log(response);
-// });
-
-// //Using Gist ID from the response above, we edit the Gist with Ajax PATCH request
-// $.ajax({ 
-//     url: 'https://api.github.com/gists/GIST-ID-FROM-PREVIOUS-CALL',
-//     type: 'PATCH',
-//     beforeSend: function(xhr) { 
-//         xhr.setRequestHeader("Authorization", "token TOKEN-FROM-AUTHORIZATION-CALL"); 
-//     },
-//     data: '{"description": "updated gist via ajax","public": true,"files": {"file1.txt": {"content": "updated String file contents via ajax"}}}'
-// }).done(function(response) {
-//     console.log(response);
-// });
+SKGistAccessToken('scriptkitti@gmail.com', 'Fr0g1-10t', 'Test');
+//SKGistCreate('', false, 'Votes.json', 'jhhjbjjhbh jhbjh hhjb', true);
+//SKGistUpdate('', '', '', false, 'Votes.txt', 'hi', true);
