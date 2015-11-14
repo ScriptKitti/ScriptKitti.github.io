@@ -72,8 +72,8 @@ function SKGistPassedUpdateAutho(id, token, _public, fileName, content, confirm,
   });
 }
 
-SKGistCreate('scriptkitti@gmail.com', 'Fr0g1-10t', false, 'pappy.txt', 'jhhjbjjhbh jhbjh hhjb');
-//SKGistUpdate('', '', 'erejhrjt', false, 'please.txt', 'hi', true);
+SKGistCreate('scriptkitti@gmail.com', 'Fr0g1-10t', false, 'Votes.txt', 'jhhjbjjhbh jhbjh hhjb');
+SKGistUpdate('scriptkitti@gmail.com', 'Fr0g1-10t', 'erejhrjt', false, 'Votes.txt', 'hi', true);
 
 
 
