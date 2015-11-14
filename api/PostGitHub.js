@@ -18,7 +18,6 @@ function SKGistCreate(username, password, _public, fileName, content) {
 }
 
 function SKGistPassedCreateAutho(id, token, _public, fileName, content, date) {
-alert('{"description": "Created ' + fileName + ' at ' + date + '","public": ' + _public + ',"files": {"' + fileName + '": {"content": "' + content + '"}}}');
   $.ajax({ 
     url: 'https://api.github.com/gists',
     type: 'POST',
