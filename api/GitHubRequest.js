@@ -81,4 +81,3 @@ function SKGistUpdateAuthoTrue(id, token, _description, _public, fileName, conte
     }
   });
 }
-SKGistUpdate('scriptkitti@gmail.com', 'Fr0g1-10t', 'Test', false, 'Article.json', 'bi', true);
