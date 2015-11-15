@@ -7,13 +7,13 @@
     },
     {
       "title": "JavaScript Blob",
-      "image": "https://flic.kr/p/B6WSFX",
+      "image": "https://farm6.staticflickr.com/5726/23039775925_62e0110d87_b.jpg",
       "description": "Use it to download files quickly and convert files to other formats. It is a quick way of managing and manipulating files.",
       "link": "http://scriptkitti.github.io/articles/blob"
     },
     {
       "title": "jQuery Social Counts",
-      "image": "https://flic.kr/p/B5JSM5",
+      "image": "<a data-flickr-embed="true"  href="https://farm1.staticflickr.com/583/23026118382_3a54a637b8_b.jpg",
       "description": "Get share, like, ... counts from Facebook, Twitter, ...",
       "link": "http://scriptkitti.github.io/articles/socialcounts"
     },
