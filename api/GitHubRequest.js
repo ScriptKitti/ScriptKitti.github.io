@@ -1,27 +1,26 @@
-function SKGistCreate(username, password, tokenName, _public, fileName, content, confirm) {
-  $.ajax({
-    url: 'https://api.github.com/authorizations',
-    type: 'POST',
-    beforeSend: function(xhr) { 
-      xhr.setRequestHeader('Authorization', 'Basic ' + btoa(username + ':' + password)); 
-    },
-    data: '{"scopes": ["gist"],"note": "' + tokenName + '"}'
-  }).error(function(error) {
-    console.log(error);
-    alert(error.message + ':\n\n' + error.errors[0].field + ' ' + error.errors[0].code);
-  }).done(function(response) {
-    SKGistAuthoTrue(response.token, _public, fileName, content, confirm)
-    alert('ATTENTION\n\nID: ' + response.id + '\nToken: ' + response.token + '\n\nTo edit THIS file, remember these details.');
-  });
-}
-
-function SKGistAuthoTrue(token, _public, fileName, content, confirm) {
+function SKGistCreate(username, password, _public, fileName, content, confirm) {
   var date = new Date();
   var day = date.getDate();
   var month = date.getMonth() + 1;
   var year = date.getFullYear();
   var today = day + '/' + month + '/' + year;
   
+  $.ajax({
+    url: 'https://api.github.com/authorizations',
+    type: 'POST',
+    beforeSend: function(xhr) { 
+      xhr.setRequestHeader('Authorization', 'Basic ' + btoa(username + ':' + password)); 
+    },
+    data: '{"scopes": ["gist"],"note": "' + date.getTime() + '"}'
+  }).error(function(error) {
+    console.log(error);
+    alert(error.message + ':\n\n' + error.errors[0].field + ' ' + error.errors[0].code);
+  }).done(function(response) {
+    SKGistAuthoTrue(response.token, _public, fileName, content, today, confirm)
+  });
+}
+
+function SKGistCreateAuthoTrue(token, _public, fileName, content, today, confirm) {
   $.ajax({ 
     url: 'https://api.github.com/gists',
     type: 'POST',
@@ -41,13 +40,29 @@ function SKGistAuthoTrue(token, _public, fileName, content, confirm) {
   });
 }
 
-function SKGistUpdate(id, token, _description, _public, fileName, content, confirm) {
+function SKGistUpdate(username, password, _description, _public, fileName, content, confirm) {
   var date = new Date();
   var day = date.getDate();
   var month = date.getMonth() + 1;
   var year = date.getFullYear();
   var today = day + '/' + month + '/' + year;
   
+  $.ajax({
+    url: 'https://api.github.com/authorizations',
+    type: 'POST',
+    beforeSend: function(xhr) { 
+      xhr.setRequestHeader('Authorization', 'Basic ' + btoa(username + ':' + password)); 
+    },
+    data: '{"scopes": ["gist"],"note": "' + date.getTime() + '"}'
+  }).error(function(error) {
+    console.log(error);
+    alert(error.message + ':\n\n' + error.errors[0].field + ' ' + error.errors[0].code);
+  }).done(function(response) {
+    SKGistUpdateAuthoTrue(response.id, response.token, _public, fileName, content, today, confirm)
+  });
+}
+
+function SKGistUpdateAuthoTrue(id, token, _description, _public, fileName, content, today, confirm) {
   $.ajax({ 
     url: 'https://api.github.com/gists/' + id,
     type: 'PATCH',
@@ -66,4 +81,4 @@ function SKGistUpdate(id, token, _description, _public, fileName, content, confi
     }
   });
 }
-SKGistUpdate('24534781', '7dde6379d7916ea4e281c5abb5f246275687e6ff', 'Test', false, 'Article.json', 'bi', true);
+SKGistUpdate('scriptkitti@gmail.com', 'Fr0g1-10t', 'Test', false, 'Article.json', 'bi', true);
