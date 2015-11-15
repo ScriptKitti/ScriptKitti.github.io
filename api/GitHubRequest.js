@@ -13,7 +13,6 @@ function SKGistAccessToken(username, password, tokenName) {
     alert('ATTENTION\n\nID: ' + response.id + '\nToken: ' + response.token + '\n\nTo create and edit files, remember these details.');
   });
 }
-SKGistAccessToken('scriptkitti@gmail.com', 'Fr0g1-10t', 'Popular');
 
 function SKGistCreate(token, _public, fileName, content, confirm) {
   var date = new Date();
@@ -40,6 +39,7 @@ function SKGistCreate(token, _public, fileName, content, confirm) {
     }
   });
 }
+SKGistCreate('b7999f2cda48a06e635d73734c514acce027da21', false, 'Article.json', '', true);
 
 function SKGistUpdate(id, token, _description, _public, fileName, content, confirm) {
   var date = new Date();
