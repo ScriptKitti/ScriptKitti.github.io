@@ -13,6 +13,8 @@ function SKGistAccessToken(username, password, tokenName) {
     alert('ATTENTION\n\nID: ' + response.id + '\nToken: ' + response.token + '\n\nTo create and edit files, remember these details.');
   });
 }
+SKGistAccessToken('scriptkitti@gmail.com', 'Fr0g1-10t', 'Article');
+SKGistAccessToken('scriptkitti@gmail.com', 'Fr0g1-10t', 'Popular');
 
 function SKGistCreate(token, _public, fileName, content, confirm) {
   var date = new Date();
