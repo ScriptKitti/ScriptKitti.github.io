@@ -19,25 +19,25 @@
     },
     {
       "title": "Custom comment/forum For Your Website",
-      "image": "http://scriptkitti.github.io/Images/jQuerySupport.png",
+      "image": "https://farm1.staticflickr.com/636/23014083396_2db08f0880.jpg",
       "description": "No need for third-parties to have a commenting system for your website. Using Google Forms and jQuery to fetch the comments from the spreadsheet.",
       "link": "http://scriptkitti.github.io/articles/customcomment"
     },
     {
       "title": "Recover Lost Network Password",
-      "image": "",
+      "image": "https://farm6.staticflickr.com/5700/23040309175_a683925898.jpg",
       "description": "Use CMD to recover a forgotten newtork/wifi password.",
       "link": "http://scriptkitti.github.io/articles/recoverwifipassword"
     },
     {
-      "title": "Adjust Font Size To Fit Text",
-      "image": "",
-      "description": "Adjust the font size so that the text will adjust to fill the space.",
-      "link": "http://scriptkitti.github.io/articles/fittext"
+      "title": "Check Internet Speed",
+      "image": "https://farm1.staticflickr.com/611/22622135847_45050b0270.jpg",
+      "description": "Using jQuery to calculate the Ping, Download and Upload speed of your internet connection.",
+      "link": "http://scriptkitti.github.io/articles/internetspeed"
     },
     {
       "title": "Pinterest Like Design",
-      "image": "",
+      "image": "https://farm6.staticflickr.com/5662/23026986952_11ed45ddd6.jpg",
       "description": "Create a web page to look like Pinterest. The columns have items situated underneath each other without aligning itself with the other objects.",
       "link": "http://scriptkitti.github.io/articles/pinterestdesign"
     },
