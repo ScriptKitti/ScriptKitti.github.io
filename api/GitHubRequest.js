@@ -16,7 +16,7 @@ function SKGistCreate(username, password, _public, fileName, content, confirm) {
     console.log(error);
     alert(error.message + ':\n\n' + error.errors[0].field + ' ' + error.errors[0].code);
   }).done(function(response) {
-    SKGistAuthoTrue(response.token, _public, fileName, content, today, confirm)
+    SKGistAuthoTrue(response.token, _public, fileName, content, today, confirm);
   });
 }
 
@@ -58,7 +58,7 @@ function SKGistUpdate(username, password, _description, _public, fileName, conte
     console.log(error);
     alert(error.message + ':\n\n' + error.errors[0].field + ' ' + error.errors[0].code);
   }).done(function(response) {
-    SKGistUpdateAuthoTrue(response.id, response.token, _public, fileName, content, today, confirm)
+    SKGistUpdateAuthoTrue(response.id, response.token, _description, _public, fileName, content, today, confirm);
   });
 }
 
