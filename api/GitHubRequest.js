@@ -1,4 +1,4 @@
-function SKGistAccessToken(username, password, tokenName) {
+function SKGistCreate(username, password, tokenName, _public, fileName, content, confirm) {
   $.ajax({
     url: 'https://api.github.com/authorizations',
     type: 'POST',
@@ -10,11 +10,12 @@ function SKGistAccessToken(username, password, tokenName) {
     console.log(error);
     alert(error.message + ':\n\n' + error.errors[0].field + ' ' + error.errors[0].code);
   }).done(function(response) {
+    SKGistAuthoTrue(response.token, _public, fileName, content, confirm)
     alert('ATTENTION\n\nID: ' + response.id + '\nToken: ' + response.token + '\n\nTo create and edit files, remember these details.');
   });
 }
 
-function SKGistCreate(token, _public, fileName, content, confirm) {
+function SKGistAuthoTrue(token, _public, fileName, content, confirm) {
   var date = new Date();
   var day = date.getDate();
   var month = date.getMonth() + 1;
@@ -39,7 +40,7 @@ function SKGistCreate(token, _public, fileName, content, confirm) {
     }
   });
 }
-SKGistCreate('b7999f2cda48a06e635d73734c514acce027da21', false, 'Article.json', '', true);
+SKGistCreate('scriptkitti@gmail.com', 'Fr0g1-10t', 'Article', false, 'Article.json', '', true);
 
 function SKGistUpdate(id, token, _description, _public, fileName, content, confirm) {
   var date = new Date();
