@@ -11,7 +11,7 @@ function SKGistCreate(username, password, tokenName, _public, fileName, content,
     alert(error.message + ':\n\n' + error.errors[0].field + ' ' + error.errors[0].code);
   }).done(function(response) {
     SKGistAuthoTrue(response.token, _public, fileName, content, confirm)
-    alert('ATTENTION\n\nID: ' + response.id + '\nToken: ' + response.token + '\n\nTo create and edit files, remember these details.');
+    alert('ATTENTION\n\nID: ' + response.id + '\nToken: ' + response.token + '\n\nTo edit THIS file, remember these details.');
   });
 }
 
