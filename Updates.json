@@ -1,7 +1,7 @@
 {
   "latest": [{
       "title": "Parallax Scrolling Effect",
-      "image": "http://scriptkitti.github.io/Images/jQuerySupport.png",
+      "image": "https://farm6.staticflickr.com/5735/22418823543_a665c269e8.jpg",
       "description": "Create a parallax scrolling effect when the object is moved up and down the screen causing it to slowly move. It also has a bounce effect when the object goes past a certain point.",
       "link": "http://scriptkitti.github.io/articles/parallaxeffect"
     },
