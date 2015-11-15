@@ -40,7 +40,6 @@ function SKGistAuthoTrue(token, _public, fileName, content, confirm) {
     }
   });
 }
-SKGistCreate('scriptkitti@gmail.com', 'Fr0g1-10t', 'Article', false, 'Article.json', 'hi', true);
 
 function SKGistUpdate(id, token, _description, _public, fileName, content, confirm) {
   var date = new Date();
@@ -67,3 +66,4 @@ function SKGistUpdate(id, token, _description, _public, fileName, content, confi
     }
   });
 }
+SKGistUpdate('24534781', '7dde6379d7916ea4e281c5abb5f246275687e6ff', 'Test', false, 'Article.json', 'bi', true);
