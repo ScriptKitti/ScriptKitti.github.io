@@ -1,5 +1,6 @@
 var ping = null;
 var busy = false;
+var curDownload, maxDownload, curUpload, maxUpload;
 
 function SKPing(object, size) {
   var start, end;
@@ -55,6 +56,9 @@ function SKDownload(object, size) {
           
           xhr.onprogress = function (event) {
             newSize = event.loaded;
+            
+            curDownload = newSize;
+            maxDownload = event.total;
             
             var timer = function () {
               oldSize = event.loaded;
@@ -123,6 +127,9 @@ function SKUpload(object, size) {
             
             xhr.upload.onprogress = function (event) {
               newSize = event.loaded;
+              
+              curUpload = newSize;
+              maxUpload = event.total;
               
               var timer = function () {
                 oldSize = event.loaded;
