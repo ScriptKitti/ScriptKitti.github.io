@@ -1,4 +1,5 @@
 var ping = null;
+var busy = false;
 
 function SKPing(object, size) {
   var start, end;
@@ -6,7 +7,9 @@ function SKPing(object, size) {
   size = size.toLowerCase();
   
   var check = function () {
-    if (ping != null) {
+    if (ping != null && busy != true) {
+      busy = true;
+      
       if (size == 'ms') {
         $(object).text(ping + ' ms');
       } else {
@@ -14,6 +17,7 @@ function SKPing(object, size) {
       }
       
       ping = null;
+      busy = false;
       
       console.log('Ping Complete');
     } else {
@@ -30,7 +34,9 @@ function SKDownload(object, size) {
   size = size.toLowerCase();
   
   var check = function () {
-    if (ping != null) {
+    if (ping != null && busy != true) {
+      busy = true;
+      
       $.ajax({
         async: true,
         cache: false,
@@ -40,6 +46,7 @@ function SKDownload(object, size) {
         url: 'http://scriptkitti.github.io/api/2MB',
         success: function (result) {
           ping = null;
+          busy = false;
           
           console.log('Download Complete');
         },
@@ -94,7 +101,9 @@ function SKUpload(object, size) {
 */
   
   var check = function () {
-    if (ping != null) {
+    if (ping != null && busy != true) {
+      busy = true;
+      
       $.get('http://scriptkitti.github.io/api/2MB', function (data) {
         $.ajax({
           async: true,
@@ -105,6 +114,7 @@ function SKUpload(object, size) {
           url: '',
           success: function (result) {
             ping = null;
+            busy = false;
             
             console.log('Upload Complete');
           },
