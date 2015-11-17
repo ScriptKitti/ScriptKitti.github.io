@@ -22,7 +22,7 @@ function SKPing(object, size) {
       
       console.log('Ping Complete');
     } else {
-      SKPingCalc('HEAD');
+      SKPingCalc('head');
       window.setTimeout(check, 1000);
     }
   }
