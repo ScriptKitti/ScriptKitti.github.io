@@ -14,7 +14,7 @@ function SKPing(object, size) {
       if (size == 'ms') {
         $(object).text(ping + ' ms');
       } else {
-        $(object).text((ping / 1000) + ' s');
+        $(object).text((ping / 1000).toFixed(4) + ' s');
       }
       
       ping = null;
