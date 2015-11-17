@@ -9,9 +9,9 @@ function SKPing(object, size) {
   
   var check = function () {
     if (busy != true) {
-      busy = true;
-      
       if (ping != null) {
+        busy = true;
+        
         if (size == 'ms') {
           $(object).text(ping + ' ms');
         } else {
@@ -38,9 +38,9 @@ function SKDownload(object, size) {
   
   var check = function () {
     if (busy != true) {
-      busy = true;
-      
       if (ping != null) {
+        busy = true;
+        
         $.ajax({
           async: true,
           cache: false,
@@ -113,9 +113,9 @@ function SKUpload(object, size) {
   
   var check = function () {
     if (busy != true) {
-      busy = true;
-      
       if (ping != null) {
+        busy = true;
+        
         $.get('http://scriptkitti.github.io/api/2MB', function (data) {
           $.ajax({
             async: true,
