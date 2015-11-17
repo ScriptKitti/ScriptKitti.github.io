@@ -1,6 +1,6 @@
 var ping = null;
 var busy = false;
-var curDownload, maxDownload, curUpload, maxUpload;
+var curDownload, curDownloadSize, maxDownload, curUpload, curUploadSize, maxUpload;
 
 function SKPing(object, size) {
   var start, end;
@@ -71,10 +71,13 @@ function SKDownload(object, size) {
             var mbps = (kbps / 1024).toFixed(2);
             
             if (size == 'bps') {
+              curDownloadSize = bps;
               $(object).text(bps + ' bps');
             } else if (size == 'kbps') {
+              curDownloadSize = kbps;
               $(object).text(kbps + ' kbps');
             } else {
+              curDownloadSize = mbps;
               $(object).text(mbps + ' Mbps');
             }
           };
@@ -142,10 +145,13 @@ function SKUpload(object, size) {
               var mbps = (kbps / 1024).toFixed(2);
               
               if (size == 'bps') {
+                curUploadSize = bps;
                 $(object).text(bps + ' bps');
               } else if (size == 'kbps') {
+                curUploadSize = kbps;
                 $(object).text(kbps + ' kbps');
               } else {
+                curUploadSize = mbps;
                 $(object).text(mbps + ' Mbps');
               }
             };
