@@ -24,10 +24,10 @@ function SKPing(object, size) {
         busy = true;
         SKPingCalc('HEAD');
       }
-      window.setTimeout(check, 100);
+      window.setTimeout(check, 1000);
     }
   }
-  window.setTimeout(check, 100);
+  window.setTimeout(check, 1000);
 }
 
 function SKDownload(object, size) {
@@ -89,10 +89,10 @@ function SKDownload(object, size) {
         busy = true;
         SKPingCalc('GET');
       }
-      window.setTimeout(check, 100);
+      window.setTimeout(check, 1000);
     }
   }
-  window.setTimeout(check, 100);
+  window.setTimeout(check, 1000);
 }
 
 function SKUpload(object, size) {
@@ -165,10 +165,10 @@ function SKUpload(object, size) {
         busy = true;
         SKPingCalc('POST');
       }
-      window.setTimeout(check, 100);
+      window.setTimeout(check, 1000);
     }
   }
-  window.setTimeout(check, 100);
+  window.setTimeout(check, 1000);
 }
 
 function SKPingCalc(type) {
