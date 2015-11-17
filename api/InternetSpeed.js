@@ -1,5 +1,5 @@
 var ping = null;
-var busy = false;
+var pBusy = false, dBusy = false, uBusy = false;
 var curDownload, curDownloadSize, maxDownload, curUpload, curUploadSize, maxUpload;
 
 function SKPing(object, size) {
@@ -7,8 +7,8 @@ function SKPing(object, size) {
   
   size = size.toLowerCase();
   
-  var check = function () {
-    if (ping != null && busy != true) {
+  var check = function() {
+    if (ping != null && pBusy) {
       if (size == 'ms') {
         $(object).text(ping + ' ms');
       } else {
@@ -16,12 +16,14 @@ function SKPing(object, size) {
       }
       
       ping = null;
-      busy = false;
+      
+      pBusy = false;
+      dBusy = false;
+      uBusy = false;
       
       console.log('Ping Complete');
     } else {
-      if (busy != true) {
-        busy = true;
+      if (!pBusy && !dBusy && !uBusy) {
         SKPingCalc('HEAD');
       }
       window.setTimeout(check, 1000);
@@ -35,8 +37,8 @@ function SKDownload(object, size) {
   
   size = size.toLowerCase();
   
-  var check = function () {
-    if (ping != null && busy != true) {
+  var check = function() {
+    if (ping != null && dBusy) {
       $.ajax({
         async: true,
         cache: false,
@@ -46,20 +48,23 @@ function SKDownload(object, size) {
         url: 'http://scriptkitti.github.io/api/2MB',
         success: function (result) {
           ping = null;
-          busy = false;
+          
+          pBusy = false;
+          dBusy = false;
+          uBusy = false;
           
           console.log('Download Complete');
         },
-        xhr: function () {
+        xhr: function() {
           var xhr = $.ajaxSettings.xhr();
           
-          xhr.onprogress = function (event) {
+          xhr.onprogress = function(event) {
             newSize = event.loaded;
             
             curDownload = newSize;
             maxDownload = event.total;
             
-            var timer = function () {
+            var timer = function() {
               oldSize = event.loaded;
             }
             window.setTimeout(timer, 1000);
@@ -85,8 +90,7 @@ function SKDownload(object, size) {
         }
       });
     } else {
-      if (busy != true) {
-        busy = true;
+      if (!pBusy && !dBusy && !uBusy) {
         SKPingCalc('GET');
       }
       window.setTimeout(check, 1000);
@@ -109,9 +113,9 @@ function SKUpload(object, size) {
   }
 */
   
-  var check = function () {
-    if (ping != null && busy != true) {
-      $.get('http://scriptkitti.github.io/api/2MB', function (data) {
+  var check = function() {
+    if (ping != null && uBusy) {
+      $.get('http://scriptkitti.github.io/api/2MB', function(data) {
         $.ajax({
           async: true,
           cache: false,
@@ -119,22 +123,25 @@ function SKUpload(object, size) {
           processData: false,
           type: 'POST',
           url: '',
-          success: function (result) {
+          success: function(result) {
             ping = null;
-            busy = false;
+            
+            pBusy = false;
+            dBusy = false;
+            uBusy = false;
             
             console.log('Upload Complete');
           },
           xhr: function () {
             var xhr = $.ajaxSettings.xhr();
             
-            xhr.upload.onprogress = function (event) {
+            xhr.upload.onprogress = function(event) {
               newSize = event.loaded;
               
               curUpload = newSize;
               maxUpload = event.total;
               
-              var timer = function () {
+              var timer = function() {
                 oldSize = event.loaded;
               }
               window.setTimeout(timer, 1000);
@@ -161,8 +168,7 @@ function SKUpload(object, size) {
         });
       });
     } else {
-      if (busy != true) {
-        busy = true;
+      if (!pBusy && !dBusy && !uBusy) {
         SKPingCalc('POST');
       }
       window.setTimeout(check, 1000);
@@ -172,9 +178,24 @@ function SKUpload(object, size) {
 }
 
 function SKPingCalc(type) {
+  type = type.toUpperCase();
+  
+  if (type == 'HEAD') {
+    pBusy = true;
+    dBusy = false;
+    uBusy = false;
+  } else if (type == 'GET') {
+    pBusy = false;
+    dBusy = true;
+    uBusy = false;
+  } else if (type == 'POST') {
+    pBusy = false;
+    dBusy = false;
+    uBusy = true;
+  }
+  
   var start, end;
   
-  type = type.toUpperCase();
   start = (new Date()).getTime();
   
   $.ajax({
@@ -184,7 +205,7 @@ function SKPingCalc(type) {
     processData: false,
     type: type,
     url: '',
-    success: function (result) {
+    success: function(result) {
       end = (new Date()).getTime();
       
       if (type == 'HEAD') {
