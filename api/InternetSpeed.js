@@ -229,38 +229,30 @@ function SKOutputValue(type, object, size, value, option) {
   type = type.toUpperCase();
   
   if (type == 'GET') {
-    if (option = true) {
-      dCurSpeed = value * 1;
+    dCurSpeed = value * 1;
+    
+    if (!isNaN(dCurSpeed)) {
+      dCount++;
+      dSum += dCurSpeed;
+      dAvg = dSum / dCount;
       
-      if (!isNaN(dCurSpeed)) {
-        dCount++;
-        dSum += dCurSpeed;
-        dAvg = dSum / dCount;
-        
+      if (option = true) {
         $(object).text(dAvg.toFixed(2) + ' ' + size);
-      }
-    } else {
-      dCurSpeed = value * 1;
-      
-      if (!isNaN(dCurSpeed)) {
+      } else {
         $(object).text(value.toFixed(2) + ' ' + size);
       }
     }
   } else {
-    if (option = true) {
-      uCurSpeed = value * 1;
+    uCurSpeed = value * 1;
+    
+    if (!isNaN(uCurSpeed)) {
+      uCount++;
+      uSum += uCurSpeed;
+      uAvg = uSum / uCount;
       
-      if (!isNaN(uCurSpeed)) {
-        uCount++;
-        uSum += uCurSpeed;
-        uAvg = uSum / uCount;
-        
+      if (option = true) {
         $(object).text(uAvg.toFixed(2) + ' ' + size);
-      }
-    } else {
-      uCurSpeed = value * 1;
-      
-      if (!isNaN(uCurSpeed)) {
+      } else {
         $(object).text(value.toFixed(2) + ' ' + size);
       }
     }
