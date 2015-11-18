@@ -117,14 +117,22 @@ function SKDownload(object, size, option) {
 
 function SKUpload(object, size, option) {
   var newSize,
-      oldSize;
+      oldSize,
+      data = null;
   
   uComplete = false;
   size = size.toLowerCase();
   
+  var dataSize = 2 * 1024 * 1024;
+  var char = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789-=[];,./!@#$%ˆ&*()_+{}:"|<>?';
+  
+  for (a = 0; a < dataSize; a++) {
+    data += char.charAt(Math.floor(Math.random() * char.length));
+  }
+  
   var check = function() {
     if (ping != null && uBusy) {
-      $.get('http://scriptkitti.github.io/api/2MB', function(data) {
+      //$.get('http://scriptkitti.github.io/api/2MB', function(data) {
         $.ajax({
           async: true,
           cache: false,
@@ -171,7 +179,7 @@ function SKUpload(object, size, option) {
             return xhr;
           }
         });
-      });
+      //});
     } else {
       if (!pBusy && !dBusy && !uBusy) {
         SKPingCalc('POST');
