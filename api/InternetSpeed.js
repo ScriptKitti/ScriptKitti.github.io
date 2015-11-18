@@ -1,8 +1,11 @@
 var ping = null;
 var pBusy = false, dBusy = false, uBusy = false;
+var pComplete, dComplete, uComplete;
 var curDownload, curDownloadSize, maxDownload, curUpload, curUploadSize, maxUpload;
 
 function SKPing(object, size) {
+  pComplete = false;
+  
   var start, end;
   
   size = size.toLowerCase();
@@ -21,6 +24,8 @@ function SKPing(object, size) {
       dBusy = false;
       uBusy = false;
       
+      pComplete = true;
+      
       console.log('Ping Complete');
     } else {
       if (!pBusy && !dBusy && !uBusy) {
@@ -33,6 +38,8 @@ function SKPing(object, size) {
 }
 
 function SKDownload(object, size) {
+  dComplete = false;
+  
   var newSize, oldSize;
   
   size = size.toLowerCase();
@@ -52,6 +59,8 @@ function SKDownload(object, size) {
           pBusy = false;
           dBusy = false;
           uBusy = false;
+          
+          dComplete = true;
           
           console.log('Download Complete');
         },
@@ -100,6 +109,8 @@ function SKDownload(object, size) {
 }
 
 function SKUpload(object, size) {
+  uComplete = false;
+  
   var newSize, oldSize; //, data;
   
   size = size.toLowerCase();
@@ -129,6 +140,8 @@ function SKUpload(object, size) {
             pBusy = false;
             dBusy = false;
             uBusy = false;
+            
+            uComplete = true;
             
             console.log('Upload Complete');
           },
