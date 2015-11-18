@@ -130,7 +130,7 @@ function SKUpload(object, size, option) {
   for (a = 0; a < dataSize; a++) {
     data += char.charAt(Math.floor(Math.random() * char.length));
     
-    if (a = dataSize - 1) {
+    if (a == dataSize - 1) {
       dataLoaded = true;
     }
   }
