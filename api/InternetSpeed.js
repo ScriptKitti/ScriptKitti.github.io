@@ -56,7 +56,6 @@ function SKDownload(object, size, option) {
   
   dComplete = false;
   size = size.toLowerCase();
-  option = option.toLowerCase();
   
   var check = function() {
     if (ping != null && dBusy) {
@@ -122,7 +121,6 @@ function SKUpload(object, size, option) {
   
   uComplete = false;
   size = size.toLowerCase();
-  option = option.toLowerCase();
   
   var check = function() {
     if (ping != null && uBusy) {
@@ -231,7 +229,7 @@ function SKOutputValue(type, object, size, value, option) {
   type = type.toUpperCase();
   
   if (type == 'GET') {
-    if (option == 'average') {
+    if (option = true) {
       dCurSpeed = value * 1;
       
       if (!isNaN(dCurSpeed)) {
@@ -247,7 +245,7 @@ function SKOutputValue(type, object, size, value, option) {
       $(object).text(value + ' ' + size);
     }
   } else {
-    if (option == 'average') {
+    if (option = true) {
       uCurSpeed = value * 1;
       
       if (!isNaN(uCurSpeed)) {
