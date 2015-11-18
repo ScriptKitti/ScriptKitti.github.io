@@ -125,13 +125,18 @@ function SKUpload(object, size, option) {
   
   var dataSize = 2 * 1024 * 1024;
   var char = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789-=[];,./!@#$%ˆ&*()_+{}:"|<>?';
+  var dataLoaded = false;
   
   for (a = 0; a < dataSize; a++) {
     data += char.charAt(Math.floor(Math.random() * char.length));
+    
+    if (a = dataSize - 1) {
+      dataLoaded = true;
+    }
   }
   
   var check = function() {
-    if (ping != null && uBusy) {
+    if (ping != null && uBusy && dataLoaded) {
       //$.get('http://scriptkitti.github.io/api/2MB', function(data) {
         $.ajax({
           async: true,
@@ -141,6 +146,7 @@ function SKUpload(object, size, option) {
           type: 'POST',
           url: '',
           success: function(result) {
+            data = null;
             ping = null;
             pBusy = false;
             dBusy = false;
