@@ -11,6 +11,12 @@ var dCurData,
     uCurData,
     uMaxData,
     uCurSpeed;
+var dCount = 0,
+    dSum = 0,
+    dAvg = 0,
+    uCount = 0,
+    uSum = 0,
+    uAvg = 0;
 
 function SKPing(object, size) {
   var start,
@@ -44,12 +50,13 @@ function SKPing(object, size) {
   window.setTimeout(check, 1000);
 }
 
-function SKDownload(object, size) {
+function SKDownload(object, size, option) {
   var newSize,
       oldSize;
   
   dComplete = false;
   size = size.toLowerCase();
+  option = option.toLowerCase();
   
   var check = function() {
     if (ping != null && dBusy) {
@@ -88,14 +95,11 @@ function SKDownload(object, size) {
                 mbps = (kbps / 1024).toFixed(2);
             
             if (size == 'bps') {
-              dCurSpeed = bps * 1;
-              $(object).text(bps + ' bps');
+              SKOutputValue('GET', object, 'bps', bps, option);
             } else if (size == 'kbps') {
-              dCurSpeed = kbps * 1;
-              $(object).text(kbps + ' kbps');
+              SKOutputValue('GET', object, 'kbps', kbps, option);
             } else {
-              dCurSpeed = mbps * 1;
-              $(object).text(mbps + ' Mbps');
+              SKOutputValue('GET', object, 'Mbps', mbps, option);
             }
           };
           
@@ -112,12 +116,13 @@ function SKDownload(object, size) {
   window.setTimeout(check, 1000);
 }
 
-function SKUpload(object, size) {
+function SKUpload(object, size, option) {
   var newSize,
       oldSize;
   
   uComplete = false;
   size = size.toLowerCase();
+  option = option.toLowerCase();
   
   var check = function() {
     if (ping != null && uBusy) {
@@ -157,14 +162,11 @@ function SKUpload(object, size) {
                   mbps = (kbps / 1024).toFixed(2);
               
               if (size == 'bps') {
-                uCurSpeed = bps * 1;
-                $(object).text(bps + ' bps');
+                SKOutputValue('POST', object, 'bps', bps, option);
               } else if (size == 'kbps') {
-                uCurSpeed = kbps * 1;
-                $(object).text(kbps + ' kbps');
+                SKOutputValue('POST', object, 'kbps', kbps, option);
               } else {
-                uCurSpeed = mbps * 1;
-                $(object).text(mbps + ' Mbps');
+                SKOutputValue('POST', object, 'Mbps', mbps, option);
               }
             };
             
@@ -223,4 +225,42 @@ function SKPingCalc(type) {
       console.log('Calculate Complete');
     }
   });
+}
+
+function SKOutputValue(type, object, size, value, option) {
+  type = type.toUpperCase();
+  
+  if (type == 'GET') {
+    if (option == 'average') {
+      dCurSpeed = value * 1;
+      
+      if (!isNaN(dCurSpeed)) {
+        dCount++;
+        dSum += dCurSpeed;
+        dAvg = dSum / dCount;
+        
+        $(object).text(dAvg + ' ' + size);
+      }
+    } else {
+      dCurSpeed = value * 1;
+      
+      $(object).text(value + ' ' + size);
+    }
+  } else {
+    if (option == 'average') {
+      uCurSpeed = value * 1;
+      
+      if (!isNaN(uCurSpeed)) {
+        uCount++;
+        uSum += uCurSpeed;
+        uAvg = uSum / uCount;
+        
+        $(object).text(uAvg + ' ' + size);
+      }
+    } else {
+      uCurSpeed = value * 1;
+      
+      $(object).text(value + ' ' + size);
+    }
+  }
 }
