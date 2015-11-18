@@ -28,7 +28,7 @@ function SKPing(object, size) {
   var check = function() {
     if (ping != null && pBusy) {
       if (size == 'ms') {
-        $(object).text(ping + ' ms');
+        $(object).text(ping.toFixed(0) + ' ms');
       } else {
         $(object).text((ping / 1000).toFixed(4) + ' s');
       }
@@ -89,9 +89,9 @@ function SKDownload(object, size, option) {
             window.setTimeout(timer, 1000);
             
             var length = (newSize - oldSize) * 8,
-                bps = (length / ping).toFixed(2),
-                kbps = (bps / 1024).toFixed(2),
-                mbps = (kbps / 1024).toFixed(2);
+                bps = length / ping,
+                kbps = bps / 1024,
+                mbps = kbps / 1024;
             
             if (size == 'bps') {
               SKOutputValue('GET', object, 'bps', bps, option);
@@ -155,9 +155,9 @@ function SKUpload(object, size, option) {
               window.setTimeout(timer, 1000);
               
               var length = (newSize - oldSize) * 8,
-                  bps = (length / ping).toFixed(2),
-                  kbps = (bps / 1024).toFixed(2),
-                  mbps = (kbps / 1024).toFixed(2);
+                  bps = length / ping,
+                  kbps = bps / 1024,
+                  mbps = kbps / 1024;
               
               if (size == 'bps') {
                 SKOutputValue('POST', object, 'bps', bps, option);
@@ -237,12 +237,14 @@ function SKOutputValue(type, object, size, value, option) {
         dSum += dCurSpeed;
         dAvg = dSum / dCount;
         
-        $(object).text(dAvg + ' ' + size);
+        $(object).text(dAvg.toFixed(2) + ' ' + size);
       }
     } else {
       dCurSpeed = value * 1;
       
-      $(object).text(value + ' ' + size);
+      if (!isNaN(dCurSpeed)) {
+        $(object).text(value.toFixed(2) + ' ' + size);
+      }
     }
   } else {
     if (option = true) {
@@ -253,12 +255,14 @@ function SKOutputValue(type, object, size, value, option) {
         uSum += uCurSpeed;
         uAvg = uSum / uCount;
         
-        $(object).text(uAvg + ' ' + size);
+        $(object).text(uAvg.toFixed(2) + ' ' + size);
       }
     } else {
       uCurSpeed = value * 1;
       
-      $(object).text(value + ' ' + size);
+      if (!isNaN(uCurSpeed)) {
+        $(object).text(value.toFixed(2) + ' ' + size);
+      }
     }
   }
 }
