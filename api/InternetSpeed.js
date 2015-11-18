@@ -137,55 +137,53 @@ function SKUpload(object, size, option) {
   
   var check = function() {
     if (ping != null && uBusy && dataLoaded) {
-      //$.get('http://scriptkitti.github.io/api/2MB', function(data) {
-        $.ajax({
-          async: true,
-          cache: false,
-          data: data,
-          processData: false,
-          type: 'POST',
-          url: '',
-          success: function(result) {
-            data = null;
-            ping = null;
-            pBusy = false;
-            dBusy = false;
-            uBusy = false;
-            uComplete = true;
+      $.ajax({
+        async: true,
+        cache: false,
+        data: data,
+        processData: false,
+        type: 'POST',
+        url: '',
+        success: function(result) {
+          data = null;
+          ping = null;
+          pBusy = false;
+          dBusy = false;
+          uBusy = false;
+          uComplete = true;
+          
+          console.log('Upload Complete');
+        },
+        xhr: function () {
+          var xhr = $.ajaxSettings.xhr();
+          
+          xhr.upload.onprogress = function(event) {
+            newSize = event.loaded;
+            uCurData = newSize;
+            uMaxData = event.total;
             
-            console.log('Upload Complete');
-          },
-          xhr: function () {
-            var xhr = $.ajaxSettings.xhr();
+            var timer = function() {
+              oldSize = event.loaded;
+            }
+            window.setTimeout(timer, 1000);
             
-            xhr.upload.onprogress = function(event) {
-              newSize = event.loaded;
-              uCurData = newSize;
-              uMaxData = event.total;
-              
-              var timer = function() {
-                oldSize = event.loaded;
-              }
-              window.setTimeout(timer, 1000);
-              
-              var length = (newSize - oldSize) * 8,
-                  bps = length / ping,
-                  kbps = bps / 1024,
-                  mbps = kbps / 1024;
-              
-              if (size == 'bps') {
-                SKOutputValue('POST', object, 'bps', bps, option);
-              } else if (size == 'kbps') {
-                SKOutputValue('POST', object, 'kbps', kbps, option);
-              } else {
-                SKOutputValue('POST', object, 'Mbps', mbps, option);
-              }
-            };
+            var length = (newSize - oldSize) * 8,
+                bps = length / ping,
+                kbps = bps / 1024,
+                mbps = kbps / 1024;
             
-            return xhr;
-          }
-        });
-      //});
+            if (size == 'bps') {
+              SKOutputValue('POST', object, 'bps', bps, option);
+            } else if (size == 'kbps') {
+              SKOutputValue('POST', object, 'kbps', kbps, option);
+            } else {
+              SKOutputValue('POST', object, 'Mbps', mbps, option);
+            }
+          };
+          
+          return xhr;
+        }
+      });
     } else {
       if (!pBusy && !dBusy && !uBusy) {
         SKPingCalc('POST');
