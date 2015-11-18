@@ -1,13 +1,22 @@
 var ping = null;
-var pBusy = false, dBusy = false, uBusy = false;
-var pComplete, dComplete, uComplete;
-var curDownload, curDownloadSize, maxDownload, curUpload, curUploadSize, maxUpload;
+var pBusy = false,
+    dBusy = false,
+    uBusy = false;
+var pComplete,
+    dComplete,
+    uComplete;
+var dCurData,
+    dMaxData,
+    dCurSpeed,
+    uCurData,
+    uMaxData,
+    uCurSpeed;
 
 function SKPing(object, size) {
+  var start,
+      end;
+  
   pComplete = false;
-  
-  var start, end;
-  
   size = size.toLowerCase();
   
   var check = function() {
@@ -19,11 +28,9 @@ function SKPing(object, size) {
       }
       
       ping = null;
-      
       pBusy = false;
       dBusy = false;
       uBusy = false;
-      
       pComplete = true;
       
       console.log('Ping Complete');
@@ -38,10 +45,10 @@ function SKPing(object, size) {
 }
 
 function SKDownload(object, size) {
+  var newSize,
+      oldSize;
+  
   dComplete = false;
-  
-  var newSize, oldSize;
-  
   size = size.toLowerCase();
   
   var check = function() {
@@ -55,11 +62,9 @@ function SKDownload(object, size) {
         url: 'http://scriptkitti.github.io/api/2MB',
         success: function (result) {
           ping = null;
-          
           pBusy = false;
           dBusy = false;
           uBusy = false;
-          
           dComplete = true;
           
           console.log('Download Complete');
@@ -69,28 +74,27 @@ function SKDownload(object, size) {
           
           xhr.onprogress = function(event) {
             newSize = event.loaded;
-            
-            curDownload = newSize;
-            maxDownload = event.total;
+            dCurData = newSize;
+            dMaxData = event.total;
             
             var timer = function() {
               oldSize = event.loaded;
             }
             window.setTimeout(timer, 1000);
             
-            var length = (newSize - oldSize) * 8;
-            var bps = (length / ping).toFixed(2);
-            var kbps = (bps / 1024).toFixed(2);
-            var mbps = (kbps / 1024).toFixed(2);
+            var length = (newSize - oldSize) * 8,
+                bps = (length / ping).toFixed(2),
+                kbps = (bps / 1024).toFixed(2),
+                mbps = (kbps / 1024).toFixed(2);
             
             if (size == 'bps') {
-              curDownloadSize = bps;
+              dCurSpeed = bps * 1;
               $(object).text(bps + ' bps');
             } else if (size == 'kbps') {
-              curDownloadSize = kbps;
+              dCurSpeed = kbps * 1;
               $(object).text(kbps + ' kbps');
             } else {
-              curDownloadSize = mbps;
+              dCurSpeed = mbps * 1;
               $(object).text(mbps + ' Mbps');
             }
           };
@@ -109,20 +113,11 @@ function SKDownload(object, size) {
 }
 
 function SKUpload(object, size) {
+  var newSize,
+      oldSize;
+  
   uComplete = false;
-  
-  var newSize, oldSize; //, data;
-  
   size = size.toLowerCase();
-  
-/*
-  var dataSize = 2 * 1024 * 1024;
-  var char = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789-=[];,./!@#$%ˆ&*()_+{}:"|<>?';
-  
-  for (a = 0; a < dataSize; a++) {
-    data += char.charAt(Math.floor(Math.random() * char.length));
-  }
-*/
   
   var check = function() {
     if (ping != null && uBusy) {
@@ -136,11 +131,9 @@ function SKUpload(object, size) {
           url: '',
           success: function(result) {
             ping = null;
-            
             pBusy = false;
             dBusy = false;
             uBusy = false;
-            
             uComplete = true;
             
             console.log('Upload Complete');
@@ -150,28 +143,27 @@ function SKUpload(object, size) {
             
             xhr.upload.onprogress = function(event) {
               newSize = event.loaded;
-              
-              curUpload = newSize;
-              maxUpload = event.total;
+              uCurData = newSize;
+              uMaxData = event.total;
               
               var timer = function() {
                 oldSize = event.loaded;
               }
               window.setTimeout(timer, 1000);
               
-              var length = (newSize - oldSize) * 8;
-              var bps = (length / ping).toFixed(2);
-              var kbps = (bps / 1024).toFixed(2);
-              var mbps = (kbps / 1024).toFixed(2);
+              var length = (newSize - oldSize) * 8,
+                  bps = (length / ping).toFixed(2),
+                  kbps = (bps / 1024).toFixed(2),
+                  mbps = (kbps / 1024).toFixed(2);
               
               if (size == 'bps') {
-                curUploadSize = bps;
+                uCurSpeed = bps * 1;
                 $(object).text(bps + ' bps');
               } else if (size == 'kbps') {
-                curUploadSize = kbps;
+                uCurSpeed = kbps * 1;
                 $(object).text(kbps + ' kbps');
               } else {
-                curUploadSize = mbps;
+                uCurSpeed = mbps * 1;
                 $(object).text(mbps + ' Mbps');
               }
             };
@@ -191,6 +183,9 @@ function SKUpload(object, size) {
 }
 
 function SKPingCalc(type) {
+  var start,
+      end;
+  
   type = type.toUpperCase();
   
   if (type == 'HEAD') {
@@ -206,8 +201,6 @@ function SKPingCalc(type) {
     dBusy = false;
     uBusy = true;
   }
-  
-  var start, end;
   
   start = (new Date()).getTime();
   
