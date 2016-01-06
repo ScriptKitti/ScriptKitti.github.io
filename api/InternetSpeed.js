@@ -65,7 +65,7 @@ function SKDownload(object, size, option) {
         data: {},
         processData: false,
         type: 'GET',
-        url: 'http://scriptkitti.github.io/api/2MB',
+        url: 'https://scriptkitti.github.io/api/2MB',
         success: function (result) {
           ping = null;
           pBusy = false;
